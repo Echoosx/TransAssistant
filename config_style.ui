@@ -68,7 +68,7 @@
     <property name="geometry">
      <rect>
       <x>0</x>
-      <y>-651</y>
+      <y>-360</y>
       <width>450</width>
       <height>1150</height>
      </rect>
@@ -91,7 +91,7 @@
      <property name="font">
       <font>
        <family>Microsoft YaHei UI</family>
-       <pointsize>21</pointsize>
+       <pointsize>20</pointsize>
       </font>
      </property>
      <property name="text">
@@ -166,7 +166,7 @@
     <widget class="QPushButton" name="confirmHotKeyButton">
      <property name="geometry">
       <rect>
-       <x>240</x>
+       <x>270</x>
        <y>570</y>
        <width>41</width>
        <height>21</height>
@@ -222,7 +222,7 @@
     <widget class="QPushButton" name="changeHotKeyButton">
      <property name="geometry">
       <rect>
-       <x>240</x>
+       <x>270</x>
        <y>570</y>
        <width>41</width>
        <height>21</height>
@@ -258,7 +258,7 @@
       <rect>
        <x>100</x>
        <y>570</y>
-       <width>131</width>
+       <width>161</width>
        <height>20</height>
       </rect>
      </property>
@@ -341,7 +341,7 @@
      <property name="font">
       <font>
        <family>Microsoft YaHei UI</family>
-       <pointsize>11</pointsize>
+       <pointsize>10</pointsize>
       </font>
      </property>
      <property name="focusPolicy">
@@ -441,7 +441,7 @@
       <rect>
        <x>100</x>
        <y>570</y>
-       <width>131</width>
+       <width>161</width>
        <height>20</height>
       </rect>
      </property>
@@ -503,7 +503,7 @@
     <widget class="QPushButton" name="cancelHotKeyButton">
      <property name="geometry">
       <rect>
-       <x>280</x>
+       <x>320</x>
        <y>570</y>
        <width>41</width>
        <height>21</height>
@@ -576,7 +576,7 @@
      <property name="geometry">
       <rect>
        <x>20</x>
-       <y>670</y>
+       <y>690</y>
        <width>201</width>
        <height>171</height>
       </rect>
@@ -597,7 +597,7 @@
      <property name="geometry">
       <rect>
        <x>240</x>
-       <y>670</y>
+       <y>690</y>
        <width>201</width>
        <height>171</height>
       </rect>
@@ -621,7 +621,7 @@
      <property name="geometry">
       <rect>
        <x>10</x>
-       <y>600</y>
+       <y>620</y>
        <width>441</width>
        <height>21</height>
       </rect>
@@ -715,7 +715,7 @@
      <property name="geometry">
       <rect>
        <x>20</x>
-       <y>620</y>
+       <y>640</y>
        <width>151</width>
        <height>20</height>
       </rect>
@@ -735,7 +735,7 @@
      <property name="geometry">
       <rect>
        <x>220</x>
-       <y>670</y>
+       <y>690</y>
        <width>21</width>
        <height>171</height>
       </rect>
@@ -748,7 +748,7 @@
      <property name="geometry">
       <rect>
        <x>20</x>
-       <y>650</y>
+       <y>670</y>
        <width>101</width>
        <height>20</height>
       </rect>
@@ -770,7 +770,7 @@
      <property name="geometry">
       <rect>
        <x>240</x>
-       <y>650</y>
+       <y>670</y>
        <width>101</width>
        <height>20</height>
       </rect>
@@ -792,7 +792,7 @@
      <property name="geometry">
       <rect>
        <x>330</x>
-       <y>840</y>
+       <y>870</y>
        <width>51</width>
        <height>21</height>
       </rect>
@@ -814,7 +814,7 @@
      <property name="geometry">
       <rect>
        <x>390</x>
-       <y>840</y>
+       <y>870</y>
        <width>51</width>
        <height>21</height>
       </rect>
@@ -836,7 +836,7 @@
      <property name="geometry">
       <rect>
        <x>360</x>
-       <y>650</y>
+       <y>670</y>
        <width>81</width>
        <height>21</height>
       </rect>
@@ -858,7 +858,7 @@
      <property name="geometry">
       <rect>
        <x>140</x>
-       <y>650</y>
+       <y>670</y>
        <width>81</width>
        <height>21</height>
       </rect>
@@ -880,7 +880,7 @@
      <property name="geometry">
       <rect>
        <x>240</x>
-       <y>840</y>
+       <y>870</y>
        <width>81</width>
        <height>20</height>
       </rect>
@@ -899,7 +899,7 @@
      <property name="geometry">
       <rect>
        <x>20</x>
-       <y>840</y>
+       <y>870</y>
        <width>131</width>
        <height>20</height>
       </rect>
@@ -1071,7 +1071,7 @@
      <property name="geometry">
       <rect>
        <x>10</x>
-       <y>870</y>
+       <y>890</y>
        <width>441</width>
        <height>21</height>
       </rect>
@@ -1090,7 +1090,7 @@
      <property name="geometry">
       <rect>
        <x>20</x>
-       <y>890</y>
+       <y>910</y>
        <width>221</width>
        <height>20</height>
       </rect>
@@ -1110,7 +1110,7 @@
      <property name="geometry">
       <rect>
        <x>30</x>
-       <y>940</y>
+       <y>960</y>
        <width>411</width>
        <height>31</height>
       </rect>
@@ -1135,7 +1135,7 @@
      <property name="geometry">
       <rect>
        <x>30</x>
-       <y>970</y>
+       <y>990</y>
        <width>411</width>
        <height>31</height>
       </rect>
@@ -1157,7 +1157,7 @@
      <property name="geometry">
       <rect>
        <x>30</x>
-       <y>1000</y>
+       <y>1020</y>
        <width>411</width>
        <height>31</height>
       </rect>
@@ -1179,7 +1179,7 @@
      <property name="geometry">
       <rect>
        <x>30</x>
-       <y>920</y>
+       <y>940</y>
        <width>131</width>
        <height>20</height>
       </rect>
@@ -1198,7 +1198,7 @@
      <property name="geometry">
       <rect>
        <x>340</x>
-       <y>900</y>
+       <y>920</y>
        <width>101</width>
        <height>31</height>
       </rect>
@@ -1220,7 +1220,7 @@
      <property name="geometry">
       <rect>
        <x>200</x>
-       <y>1090</y>
+       <y>1110</y>
        <width>241</width>
        <height>22</height>
       </rect>
@@ -1257,7 +1257,7 @@
      <property name="geometry">
       <rect>
        <x>10</x>
-       <y>1040</y>
+       <y>1060</y>
        <width>441</width>
        <height>21</height>
       </rect>
@@ -1276,7 +1276,7 @@
      <property name="geometry">
       <rect>
        <x>20</x>
-       <y>1060</y>
+       <y>1080</y>
        <width>221</width>
        <height>20</height>
       </rect>
@@ -1296,7 +1296,7 @@
      <property name="geometry">
       <rect>
        <x>30</x>
-       <y>1090</y>
+       <y>1110</y>
        <width>111</width>
        <height>20</height>
       </rect>
@@ -1315,7 +1315,7 @@
      <property name="geometry">
       <rect>
        <x>150</x>
-       <y>1090</y>
+       <y>1110</y>
        <width>42</width>
        <height>22</height>
       </rect>
@@ -1328,6 +1328,166 @@
      </property>
      <property name="value">
       <number>100</number>
+     </property>
+    </widget>
+    <widget class="QLabel" name="Label_ConcatHotkey">
+     <property name="geometry">
+      <rect>
+       <x>30</x>
+       <y>600</y>
+       <width>91</width>
+       <height>20</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <family>Microsoft YaHei UI</family>
+       <pointsize>11</pointsize>
+      </font>
+     </property>
+     <property name="text">
+      <string>拼接热键：</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="Label_ConcatShortcutKeyText">
+     <property name="geometry">
+      <rect>
+       <x>100</x>
+       <y>600</y>
+       <width>161</width>
+       <height>20</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <family>Microsoft YaHei UI</family>
+       <pointsize>11</pointsize>
+       <underline>true</underline>
+      </font>
+     </property>
+     <property name="text">
+      <string/>
+     </property>
+     <property name="alignment">
+      <set>Qt::AlignCenter</set>
+     </property>
+    </widget>
+    <widget class="oneKeyQKeySequenceEdit" name="ConcatKeyEdit">
+     <property name="geometry">
+      <rect>
+       <x>100</x>
+       <y>600</y>
+       <width>161</width>
+       <height>20</height>
+      </rect>
+     </property>
+     <property name="toolTip">
+      <string>摁下快捷键以键入</string>
+     </property>
+     <property name="keySequence">
+      <string extracomment="请按下组合键"/>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="cancelConcatHotKeyButton">
+     <property name="geometry">
+      <rect>
+       <x>320</x>
+       <y>600</y>
+       <width>41</width>
+       <height>21</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <family>Microsoft YaHei UI</family>
+       <pointsize>10</pointsize>
+      </font>
+     </property>
+     <property name="focusPolicy">
+      <enum>Qt::NoFocus</enum>
+     </property>
+     <property name="toolTip">
+      <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;确认更改快捷键&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+     </property>
+     <property name="statusTip">
+      <string/>
+     </property>
+     <property name="whatsThis">
+      <string/>
+     </property>
+     <property name="accessibleDescription">
+      <string/>
+     </property>
+     <property name="text">
+      <string>取消</string>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="confirmConcatHotKeyButton">
+     <property name="geometry">
+      <rect>
+       <x>270</x>
+       <y>600</y>
+       <width>41</width>
+       <height>21</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <family>Microsoft YaHei UI</family>
+       <pointsize>10</pointsize>
+      </font>
+     </property>
+     <property name="focusPolicy">
+      <enum>Qt::NoFocus</enum>
+     </property>
+     <property name="toolTip">
+      <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;确认更改快捷键&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+     </property>
+     <property name="statusTip">
+      <string/>
+     </property>
+     <property name="whatsThis">
+      <string/>
+     </property>
+     <property name="accessibleDescription">
+      <string/>
+     </property>
+     <property name="text">
+      <string>确认</string>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="changeConcatHotKeyButton">
+     <property name="geometry">
+      <rect>
+       <x>270</x>
+       <y>600</y>
+       <width>41</width>
+       <height>21</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <family>Microsoft YaHei UI</family>
+       <pointsize>10</pointsize>
+      </font>
+     </property>
+     <property name="focusPolicy">
+      <enum>Qt::NoFocus</enum>
+     </property>
+     <property name="toolTip">
+      <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;确认更改快捷键&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+     </property>
+     <property name="statusTip">
+      <string/>
+     </property>
+     <property name="whatsThis">
+      <string/>
+     </property>
+     <property name="accessibleDescription">
+      <string/>
+     </property>
+     <property name="text">
+      <string>更改</string>
      </property>
     </widget>
    </widget>
@@ -1566,12 +1726,63 @@
     </hint>
    </hints>
   </connection>
+  <connection>
+   <sender>changeConcatHotKeyButton</sender>
+   <signal>clicked()</signal>
+   <receiver>Config</receiver>
+   <slot>getIntoConcatHotKeyChangeMode()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>281</x>
+     <y>251</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>229</x>
+     <y>251</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>cancelConcatHotKeyButton</sender>
+   <signal>clicked()</signal>
+   <receiver>Config</receiver>
+   <slot>cancelConcatHotKey()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>331</x>
+     <y>251</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>229</x>
+     <y>251</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>confirmConcatHotKeyButton</sender>
+   <signal>clicked()</signal>
+   <receiver>Config</receiver>
+   <slot>confirmConcatHotkey()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>281</x>
+     <y>251</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>229</x>
+     <y>251</y>
+    </hint>
+   </hints>
+  </connection>
  </connections>
  <slots>
   <slot>saveConfig()</slot>
   <slot>getIntoHotKeyChangeMode()</slot>
+  <slot>getIntoConcatHotKeyChangeMode()</slot>
   <slot>cancelHotKey()</slot>
+  <slot>cancelConcatHotKey()</slot>
   <slot>confirmHotkey()</slot>
+  <slot>confirmConcatHotkey()</slot>
   <slot>addTranslator()</slot>
   <slot>removeTranslator()</slot>
   <slot>checkSelectedTranslatorCount()</slot>

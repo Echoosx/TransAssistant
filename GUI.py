@@ -15,14 +15,16 @@ from config_style import Ui_Config
 from Config import readConfig, writeConfig, isInit
 import keyboard
 from customerDefineDict import ZhNameDict, JPNameDict, hirakanaList, katakanaList
+
+
 # from var_dump import var_dump
 
 def keymap_replace(
-    string: str,
-    mappings: dict,
-    lower_keys=False,
-    lower_values=False,
-    lower_string=False,
+        string: str,
+        mappings: dict,
+        lower_keys=False,
+        lower_values=False,
+        lower_string=False,
 ) -> str:
     """Replace parts of a string based on a dictionary.
 
@@ -45,44 +47,49 @@ def keymap_replace(
         )
     return replaced_string
 
+
 def getSimilarKana(kana: str) -> list:
-    return [similarKana for similarKana in katakanaList+hirakanaList if kana in similarKana]
+    return [similarKana for similarKana in katakanaList + hirakanaList if kana in similarKana]
+
 
 def nameReplace(string: str, reverse=False):
     _dict = ZhNameDict if reverse else JPNameDict
     return keymap_replace(string, _dict)
 
+
 class getSecretWidget_class(QtWidgets.QWidget, Ui_getSecretWidget):
     def __init__(self, parent) -> None:
         super().__init__()
         self.setupUi(self)
-        self.parent = parent # type: ignore
-    
+        self.parent = parent  # type: ignore
+
     def setupUi(self, Config):
         super().setupUi(Config)
-        Config.setWindowOpacity(0.9)
+        # Config.setWindowOpacity(0.9)
+        Config.setWindowOpacity(1)
         Config.setWindowFlags(Qt.WindowType.WindowStaysOnTopHint)
-    
+
     def fillListWithSecret(self):
         self.secretList = getOCRSecret()
         self.ListWidget_Secrets.addItems((each[1] for each in self.secretList))
-    
+
     def checkSecret(self):
         _tempList = self.secretList[self.ListWidget_Secrets.currentRow()]
         self.ListWidget_Secrets.item(self.ListWidget_Secrets.currentRow()).setBackground(Qt.GlobalColor.gray)
-        if(checkSecretAvailable(_tempList[0], _tempList[1], _tempList[2])):
+        if (checkSecretAvailable(_tempList[0], _tempList[1], _tempList[2])):
             self.ListWidget_Secrets.item(self.ListWidget_Secrets.currentRow()).setBackground(Qt.GlobalColor.green)
             self.PushButton_Confirm.setEnabled(True)
             return
         self.ListWidget_Secrets.item(self.ListWidget_Secrets.currentRow()).setBackground(Qt.GlobalColor.red)
         self.PushButton_Confirm.setEnabled(False)
-    
+
     def checkCurrectIsAvailable(self):
-        if(self.ListWidget_Secrets.item(self.ListWidget_Secrets.currentRow()).background().color() == Qt.GlobalColor.green):
+        if (self.ListWidget_Secrets.item(
+                self.ListWidget_Secrets.currentRow()).background().color() == Qt.GlobalColor.green):
             self.PushButton_Confirm.setEnabled(True)
             return
         self.PushButton_Confirm.setEnabled(False)
-    
+
     def save(self):
         _APPID, _SECRET, _KEY = self.secretList[self.ListWidget_Secrets.currentRow()]
         self.parent.LineEdit_OCRAPPID.setText(_APPID)
@@ -91,14 +98,21 @@ class getSecretWidget_class(QtWidgets.QWidget, Ui_getSecretWidget):
         print('OCR密钥已设置！')
         self.close()
 
+
 class configWidget_class(QtWidgets.QWidget, Ui_Config):
     def __init__(self, parent) -> None:
         super().__init__()
         self.setupUi(self)
         self.ListWidget_SelectedSource.setDragDropMode(QtWidgets.QAbstractItemView.DragDropMode.InternalMove)
-        self.parent = parent # type: ignore
+        self.parent = parent  # type: ignore
         self.Hotkey_OCR = parent.Hotkey_OCR
-        self.OCRKeyEdit.hide(); self.cancelHotKeyButton.hide(); self.confirmHotKeyButton.hide()
+        self.Hotkey_CONCAT = parent.Hotkey_CONCAT
+        self.OCRKeyEdit.hide()
+        self.ConcatKeyEdit.hide()
+        self.cancelHotKeyButton.hide()
+        self.confirmHotKeyButton.hide()
+        self.cancelConcatHotKeyButton.hide()
+        self.confirmConcatHotKeyButton.hide()
         self.LineEditMapping = {
             'YOUDAO_KEY': self.LineEdit_YoudaoKEY,
             'YOUDAO_SECRET': self.LineEdit_YoudaoSECRET,
@@ -115,10 +129,10 @@ class configWidget_class(QtWidgets.QWidget, Ui_Config):
             'OCR_KEY': self.LineEdit_OCRKEY,
         }
         self.FreeRiderMapping = {
-                'YOUDAO_FREE_RIDER': self.CheckBox_Youdao,
-                'CAIYUN_FREE_RIDER': self.CheckBox_CaiYun,
-                'BAIDU_FREE_RIDER': self.CheckBox_Baidu,
-                'TENCENT_FREE_RIDER': self.CheckBox_Tencent,
+            'YOUDAO_FREE_RIDER': self.CheckBox_Youdao,
+            'CAIYUN_FREE_RIDER': self.CheckBox_CaiYun,
+            'BAIDU_FREE_RIDER': self.CheckBox_Baidu,
+            'TENCENT_FREE_RIDER': self.CheckBox_Tencent,
         }
         self.getSecretWidget = getSecretWidget_class(self)
 
@@ -126,9 +140,10 @@ class configWidget_class(QtWidgets.QWidget, Ui_Config):
         self.parent.Status = True
         self.parent.setEnabled(True)
         if ((data := readConfig()) != self.getConfig()):
-            reply = QtWidgets.QMessageBox.warning (self, '设置尚未保存',
-                        "是否保存再关闭窗口?", QtWidgets.QMessageBox.StandardButton.Save |
-                        QtWidgets.QMessageBox.StandardButton.Discard, QtWidgets.QMessageBox.StandardButton.Discard)
+            reply = QtWidgets.QMessageBox.warning(self, '设置尚未保存',
+                                                  "是否保存再关闭窗口?", QtWidgets.QMessageBox.StandardButton.Save |
+                                                  QtWidgets.QMessageBox.StandardButton.Discard,
+                                                  QtWidgets.QMessageBox.StandardButton.Discard)
             if reply == QtWidgets.QMessageBox.StandardButton.Save:
                 self.saveConfig()
             else:
@@ -136,13 +151,14 @@ class configWidget_class(QtWidgets.QWidget, Ui_Config):
 
     def setupUi(self, Config):
         super().setupUi(Config)
-        Config.setWindowOpacity(1)
+        Config.setWindowOpacity(0.9)
         Config.setWindowFlags(Qt.WindowType.WindowStaysOnTopHint)
-    
+
     def replaceWithCurrentConfig(self):
         self.ListWidget_SelectableSource.clear()
         self.ListWidget_SelectedSource.clear()
         self.Label_ShortcutKeyText.setText(self.Hotkey_OCR)
+        self.Label_ConcatShortcutKeyText.setText(self.Hotkey_CONCAT)
         configDict = readConfig()
         self.spinBox_Opacity.setValue(configDict['OPACITY'])
         for each in self.LineEditMapping:
@@ -155,28 +171,32 @@ class configWidget_class(QtWidgets.QWidget, Ui_Config):
             self.ListWidget_SelectedSource.addItem(each)
 
     def addTranslator(self):
-        if(self.ListWidget_SelectableSource.currentItem()):
+        if (self.ListWidget_SelectableSource.currentItem()):
             self.ListWidget_SelectedSource.addItem(self.ListWidget_SelectableSource.currentItem().text())
             self.ListWidget_SelectableSource.takeItem(self.ListWidget_SelectableSource.currentRow())
         self.checkSelectedTranslatorCount()
 
     def removeTranslator(self):
-        if(self.ListWidget_SelectedSource.currentItem()):
+        if (self.ListWidget_SelectedSource.currentItem()):
             self.ListWidget_SelectableSource.addItem(self.ListWidget_SelectedSource.currentItem().text())
             self.ListWidget_SelectedSource.takeItem(self.ListWidget_SelectedSource.currentRow())
         self.checkSelectedTranslatorCount()
 
     def upTranslator(self):
-        if(self.ListWidget_SelectedSource.currentItem()):
+        if (self.ListWidget_SelectedSource.currentItem()):
             _currentRow = self.ListWidget_SelectedSource.currentRow()
-            self.ListWidget_SelectedSource.insertItem(self.ListWidget_SelectedSource.currentRow()-1, self.ListWidget_SelectedSource.takeItem(self.ListWidget_SelectedSource.currentRow()))
-            self.ListWidget_SelectedSource.setCurrentRow(_currentRow-1)
+            self.ListWidget_SelectedSource.insertItem(self.ListWidget_SelectedSource.currentRow() - 1,
+                                                      self.ListWidget_SelectedSource.takeItem(
+                                                          self.ListWidget_SelectedSource.currentRow()))
+            self.ListWidget_SelectedSource.setCurrentRow(_currentRow - 1)
 
     def downTranslator(self):
-        if(self.ListWidget_SelectedSource.currentItem()):
+        if (self.ListWidget_SelectedSource.currentItem()):
             _currentRow = self.ListWidget_SelectedSource.currentRow()
-            self.ListWidget_SelectedSource.insertItem(self.ListWidget_SelectedSource.currentRow()+1, self.ListWidget_SelectedSource.takeItem(self.ListWidget_SelectedSource.currentRow()))
-            self.ListWidget_SelectedSource.setCurrentRow(_currentRow+1)
+            self.ListWidget_SelectedSource.insertItem(self.ListWidget_SelectedSource.currentRow() + 1,
+                                                      self.ListWidget_SelectedSource.takeItem(
+                                                          self.ListWidget_SelectedSource.currentRow()))
+            self.ListWidget_SelectedSource.setCurrentRow(_currentRow + 1)
 
     def getCurrentSelectedTranslator(self):
         return [self.ListWidget_SelectedSource.item(i).text() for i in range(self.ListWidget_SelectedSource.count())]
@@ -191,32 +211,74 @@ class configWidget_class(QtWidgets.QWidget, Ui_Config):
 
     def getIntoHotKeyChangeMode(self):
         print('请摁下快捷键!')
-        self.OCRKeyEdit.show(); self.confirmHotKeyButton.show(); self.cancelHotKeyButton.show(); self.changeHotKeyButton.hide(); self.Label_ShortcutKeyText.hide()
-    
+        self.OCRKeyEdit.show()
+        self.confirmHotKeyButton.show()
+        self.cancelHotKeyButton.show()
+        self.changeHotKeyButton.hide()
+        self.Label_ShortcutKeyText.hide()
+
+    def getIntoConcatHotKeyChangeMode(self):
+        print('请摁下快捷键!')
+        self.ConcatKeyEdit.show()
+        self.confirmConcatHotKeyButton.show()
+        self.cancelConcatHotKeyButton.show()
+        self.changeConcatHotKeyButton.hide()
+        self.Label_ConcatShortcutKeyText.hide()
+
     def confirmHotkey(self):
-        if(not self.OCRKeyEdit._string):
+        if (not self.OCRKeyEdit._string):
             self.cancelHotKey()
             return
-        self.Hotkey_OCR = self.OCRKeyEdit._string.replace('+',' + ')
+        self.Hotkey_OCR = self.OCRKeyEdit._string.replace('+', ' + ')
         self.Label_ShortcutKeyText.setText(self.OCRKeyEdit._string)
         print(f'热键将更改为: {self.Hotkey_OCR}')
-        self.OCRKeyEdit.hide(); self.confirmHotKeyButton.hide(); self.cancelHotKeyButton.hide(); self.changeHotKeyButton.show(); self.Label_ShortcutKeyText.show()
-    
+        self.OCRKeyEdit.hide()
+        self.confirmHotKeyButton.hide()
+        self.cancelHotKeyButton.hide()
+        self.changeHotKeyButton.show()
+        self.Label_ShortcutKeyText.show()
+
+    def confirmConcatHotkey(self):
+        if (not self.ConcatKeyEdit._string):
+            self.cancelConcatHotKey()
+            return
+        self.Hotkey_CONCAT = self.ConcatKeyEdit._string.replace('+', ' + ')
+        self.Label_ConcatShortcutKeyText.setText(self.ConcatKeyEdit._string)
+        print(f'热键将更改为: {self.Hotkey_CONCAT}')
+        self.ConcatKeyEdit.hide()
+        self.confirmConcatHotKeyButton.hide()
+        self.cancelConcatHotKeyButton.hide()
+        self.changeConcatHotKeyButton.show()
+        self.Label_ConcatShortcutKeyText.show()
+
     def cancelHotKey(self):
-        self.OCRKeyEdit.hide(); self.confirmHotKeyButton.hide(); self.cancelHotKeyButton.hide(); self.changeHotKeyButton.show(); self.Label_ShortcutKeyText.show()
+        self.OCRKeyEdit.hide()
+        self.confirmHotKeyButton.hide()
+        self.cancelHotKeyButton.hide()
+        self.changeHotKeyButton.show()
+        self.Label_ShortcutKeyText.show()
         print('已取消更改热键')
-    
+
+    def cancelConcatHotKey(self):
+        self.ConcatKeyEdit.hide()
+        self.confirmConcatHotKeyButton.hide()
+        self.cancelConcatHotKeyButton.hide()
+        self.changeConcatHotKeyButton.show()
+        self.Label_ConcatShortcutKeyText.show()
+        print('已取消更改热键')
+
     def showGetSecretWidget(self):
         self.getSecretWidget.show()
-    
-    def getConfig(self) -> dict|None:
-        if(not self.getCurrentSelectedTranslator()):
-            QtWidgets.QMessageBox.critical(self,"配置有误","至少选择一个翻译源！")
+
+    def getConfig(self) -> dict | None:
+        if (not self.getCurrentSelectedTranslator()):
+            QtWidgets.QMessageBox.critical(self, "配置有误", "至少选择一个翻译源！")
             return None
         data = {each: self.LineEditMapping[each].text() for each in self.LineEditMapping}
-        data.update({each: self.FreeRiderMapping[each].isChecked() for each in self.FreeRiderMapping}) # type: ignore
-        data['SELECTED_TRANSLATORS'] = self.getCurrentSelectedTranslator() # type: ignore
+        data.update({each: self.FreeRiderMapping[each].isChecked() for each in self.FreeRiderMapping})  # type: ignore
+        data['SELECTED_TRANSLATORS'] = self.getCurrentSelectedTranslator()  # type: ignore
         data['Hotkey_OCR'] = self.Hotkey_OCR
+        data['Hotkey_CONCAT'] = self.Hotkey_CONCAT
         data['OPACITY'] = self.horizontalSlider_Opacity.value()
         return data
 
@@ -225,16 +287,18 @@ class configWidget_class(QtWidgets.QWidget, Ui_Config):
             return
         writeConfig(data)
         self.parent.changeHotkey(self.Hotkey_OCR)
+        self.parent.changeConcatHotkey(self.Hotkey_CONCAT)
         self.parent.updateTranslatorList(self.getCurrentSelectedTranslator())
-        reloadOCRConfig(); reloadTranslatorConfig()
+        reloadOCRConfig();
+        reloadTranslatorConfig()
         self.close()
-    
+
     def changeHorizontalSliderOpacity(self, value):
         self.horizontalSlider_Opacity.setValue(value)
         self.parent.changeOpacity(value)
-    
+
     def changeSpinBoxOpacity(self, _value):
-            self.spinBox_Opacity.setValue(self.horizontalSlider_Opacity.value())
+        self.spinBox_Opacity.setValue(self.horizontalSlider_Opacity.value())
 
 
 class dictWindow_class(QtWidgets.QMainWindow, Ui_dict_Window):
@@ -252,53 +316,60 @@ class dictWindow_class(QtWidgets.QMainWindow, Ui_dict_Window):
         Config.setWindowOpacity(0.9)
         Config.setWindowFlags(Qt.WindowType.WindowStaysOnTopHint)
 
-    def updateAutoSearch(self,_bool):
+    def updateAutoSearch(self, _bool):
         self.autoSearch = _bool
 
-    def showEvent(self,event):
-        super(dictWindow_class,self).showEvent(event)
+    def showEvent(self, event):
+        super(dictWindow_class, self).showEvent(event)
 
     def searchWord(self):
         self.wordsList.clear()
         source = self.inputLineEdit.text()
-        if(source):
+        if (source):
             self._wordList = searchWord(source)
             tempItemList = tuple(each[0] for each in self._wordList)
             self.wordsList.addItems(tempItemList)
             self.wordsList.setCurrentItem(self.wordsList.item(0))
 
-    def setQueryWord(self,word):
+    def setQueryWord(self, word):
         self.inputLineEdit.setText(word)
 
     def editingFinished(self):
-        if(self.autoSearch):
+        if (self.autoSearch):
             self.searchWord()
 
     def returnPressed(self):
-        if(not self.autoSearch):
+        if (not self.autoSearch):
             self.searchWord()
 
-    def fromtHtml(self,sourceList) -> str:
+    def fromtHtml(self, sourceList) -> str:
         try:
             html = f'<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN" "http://www.w3.org/TR/REC-html40/strict.dtd"><html><head><meta name="qrichtext" content="1" /><style type="text/css">p, li {{ white-space: pre-wrap; }}</style></head><body><p style="margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;"><span style="font-family:\'Microsoft Yahei\'; font-size:25pt; font-weight:600; color:#111111;">{sourceList[0][0]}</span></p><p style="margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;"><span style="font-family:\'Microsoft Yahei\'; font-size:15pt; color:#111111;">{sourceList[0][2]} {sourceList[0][3]}</span></p><p style="-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:\'Microsoft Yahei\'; font-size:10pt; color:#111111;"><br /></p>'
             for eachId in sourceList[1][0]:
-                html += '<p style="margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;"><span style="font-family:\'Microsoft Yahei\'; font-size:23px; font-weight:600; color:#111111;">'+ sourceList[1][1][eachId][0] +'：</span></p><ul style="margin-top: 0px; margin-bottom: 0px; margin-left: 0px; margin-right: 0px; -qt-list-indent: 1;">'
+                html += '<p style="margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;"><span style="font-family:\'Microsoft Yahei\'; font-size:23px; font-weight:600; color:#111111;">' + \
+                        sourceList[1][1][eachId][
+                            0] + '：</span></p><ul style="margin-top: 0px; margin-bottom: 0px; margin-left: 0px; margin-right: 0px; -qt-list-indent: 1;">'
                 for eachSubId in sourceList[1][1][eachId][1]:
-                    html += '<li style="margin-top:6px; margin-bottom:6px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;"><span style="font-family:\'Microsoft Yahei\'; font-size:17px; color:#111111; text-decoration: underline;">'+ sourceList[1][1][eachId][2][eachSubId][0] +'</span></li><ul style="margin-top: 0px; margin-bottom: 0px; margin-left: 0px; margin-right: 0px; -qt-list-indent: 2;">'
+                    html += '<li style="margin-top:6px; margin-bottom:6px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;"><span style="font-family:\'Microsoft Yahei\'; font-size:17px; color:#111111; text-decoration: underline;">' + \
+                            sourceList[1][1][eachId][2][eachSubId][
+                                0] + '</span></li><ul style="margin-top: 0px; margin-bottom: 0px; margin-left: 0px; margin-right: 0px; -qt-list-indent: 2;">'
                     for eachExampleList in sourceList[1][1][eachId][2][eachSubId][1]:
-                        html += '<li style="margin-top:6px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;"><span style="font-family:\'Microsoft Yahei\'; font-size:17px; color:#111111;">'+ eachExampleList[0] +'</span></li><p style="margin-top:0px; margin-bottom:6px; margin-left:0px; margin-right:0px; -qt-block-indent:2; text-indent:0px;"><span style="font-family:\'Microsoft Yahei\'; font-size:17px; color:#444444;">'+ eachExampleList[1] +'</span></p>'
+                        html += '<li style="margin-top:6px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;"><span style="font-family:\'Microsoft Yahei\'; font-size:17px; color:#111111;">' + \
+                                eachExampleList[
+                                    0] + '</span></li><p style="margin-top:0px; margin-bottom:6px; margin-left:0px; margin-right:0px; -qt-block-indent:2; text-indent:0px;"><span style="font-family:\'Microsoft Yahei\'; font-size:17px; color:#444444;">' + \
+                                eachExampleList[1] + '</span></p>'
                     html += '</ul>'
             html += '<p style="-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:\'Microsoft Yahei\'; font-size:10pt; color:#111111;"><br /></p><p style="-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:\'Microsoft Yahei\'; font-size:10pt; color:#111111;"><br /></p><p style="-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:\'Microsoft Yahei\'; font-size:10pt; color:#111111;"><br /></p></ul></body></html>'
         except Exception:
             return sourceList
         return html
 
-    def showWordDetails(self,index):
+    def showWordDetails(self, index):
         self.resultText.setHtml(self.fromtHtml(fetchWord(self._wordList[index][1])))
 
 
+MutexList = [QMutex(), QMutex(), QMutex(), QMutex()]
 
-MutexList = [QMutex(),QMutex(),QMutex(),QMutex()]
 
 class TranslatorThread(QThread):
     _signal = pyqtSignal(int, str)
@@ -316,8 +387,10 @@ class TranslatorThread(QThread):
         self._signal.emit(self.aimTextEdit, result)
         MutexList[self.aimTextEdit].unlock()
 
+
 class TransAssistant_class(QtWidgets.QMainWindow, Ui_OCR_Window):
     ocrHotkeyPressed = pyqtSignal()
+    ocrConcatHotkeyPressed = pyqtSignal()
 
     def setupUi(self, Config):
         super(TransAssistant_class, self).setupUi(Config)
@@ -345,6 +418,8 @@ class TransAssistant_class(QtWidgets.QMainWindow, Ui_OCR_Window):
         self.SplitMode = "sudachi"
         self.Hotkey_OCR = self.ConfigDict['Hotkey_OCR']
         self.changeHotkey(self.Hotkey_OCR)
+        self.Hotkey_CONCAT = self.ConfigDict['Hotkey_CONCAT']
+        self.changeConcatHotkey(self.Hotkey_CONCAT)
         self.dictWindow = dictWindow_class()
         self.configWidget = configWidget_class(self)
         self.selectionTextChange = self.dictWindow.selectionTextChange
@@ -352,16 +427,19 @@ class TransAssistant_class(QtWidgets.QMainWindow, Ui_OCR_Window):
         self.resultTextEditList = self.TransResult_0, self.TransResult_1, self.TransResult_2, self.TransResult_3
         self.updateTranslatorList(self.ConfigDict['SELECTED_TRANSLATORS'])
         self.autoTrans = True
-        if(not isInit):
+        if (not isInit):
             self.showConfig()
 
-    def registerHotkey(self,hotkeys):
-        keyboard.add_hotkey(hotkeys,lambda: self.sendHotkeyPressedSig(hotkeys))
+    def registerHotkey(self, hotkeys):
+        keyboard.add_hotkey(hotkeys, lambda: self.sendHotkeyPressedSig(hotkeys))
+
+    def registerConcatHotkey(self, hotkeys):
+        keyboard.add_hotkey(hotkeys, lambda: self.sendConcatHotkeyPressedSig(hotkeys))
 
     def getIntoHotKeyChangeMode(self):
         self.showConfig()
 
-    def changeHotkey(self,_hotkey):
+    def changeHotkey(self, _hotkey):
         _hotkeyTemp = self.Hotkey_OCR
         with contextlib.suppress(Exception):
             keyboard.clear_hotkey(self.Hotkey_OCR)
@@ -375,31 +453,48 @@ class TransAssistant_class(QtWidgets.QMainWindow, Ui_OCR_Window):
                 self.registerHotkey(_hotkeyTemp)
             print(f'设置{_hotkey}为快捷键失败')
 
+    def changeConcatHotkey(self, _hotkey):
+        _hotkeyTemp = self.Hotkey_CONCAT
+        with contextlib.suppress(Exception):
+            keyboard.clear_hotkey(self.Hotkey_CONCAT)
+        try:
+            self.registerConcatHotkey(_hotkey)
+            self.Hotkey_CONCAT = _hotkey
+            self.ConcatShortcutKeyText.setText(self.Hotkey_CONCAT)
+            print(f'当前快捷键： {self.Hotkey_CONCAT}')
+        except Exception:
+            with contextlib.suppress(Exception):
+                self.registerConcatHotkey(_hotkeyTemp)
+            print(f'设置{_hotkey}为快捷键失败')
+
     def updateSelectionText(self):
-        if(self.OCRResultTextEdit.hasFocus()):
+        if (self.OCRResultTextEdit.hasFocus()):
             self.selectionText = self.OCRResultTextEdit.textCursor().selectedText()
-        elif(self.splitTextEdit.hasFocus()):
+        elif (self.splitTextEdit.hasFocus()):
             self.selectionText = self.splitTextEdit.textCursor().selectedText()
-        if(self.autoDict):
+        if (self.autoDict):
             self.showDictWindow()
 
     def showReplaceListWidget(self):
         selectedText = self.OCRResultTextEdit.textCursor().selectedText()
-        if(len(selectedText) != 1 or self.autoDict):
+        if (len(selectedText) != 1 or self.autoDict):
             self.replaceListWidget.hide()
             return
         similarKanaList = getSimilarKana(selectedText)
-        if(not similarKanaList):
+        if (not similarKanaList):
             self.replaceListWidget.hide()
             return
         similarKanaList = list(similarKanaList[0])
         similarKanaList.remove(selectedText)
-        if len(similarKanaList) == 1: self.replaceListWidget.setFixedSize(35,35)
-        else: self.replaceListWidget.setFixedSize(35,70)
+        if len(similarKanaList) == 1:
+            self.replaceListWidget.setFixedSize(35, 35)
+        else:
+            self.replaceListWidget.setFixedSize(35, 70)
         self.replaceListWidget.clear()
         self.replaceListWidget.addItems(similarKanaList)
         self.replaceListWidget.show()
-        self.replaceListWidget.move(self.OCRResultTextEdit.mapToParent(QPoint(self.OCRResultTextEdit.cursorRect().left(),self.OCRResultTextEdit.cursorRect().bottom())))
+        self.replaceListWidget.move(self.OCRResultTextEdit.mapToParent(
+            QPoint(self.OCRResultTextEdit.cursorRect().left(), self.OCRResultTextEdit.cursorRect().bottom())))
 
     def hideReplaceListWidget(self):
         self.replaceListWidget.hide()
@@ -407,20 +502,26 @@ class TransAssistant_class(QtWidgets.QMainWindow, Ui_OCR_Window):
     def replaceKana(self):
         _pos = min(self.OCRResultTextEdit.selectionArea)
         nowText = self.OCRResultTextEdit.toPlainText()
-        self.OCRResultTextEdit.setPlainText(nowText[:_pos] + self.replaceListWidget.currentItem().text() + nowText[_pos+1:])
+        self.OCRResultTextEdit.setPlainText(
+            nowText[:_pos] + self.replaceListWidget.currentItem().text() + nowText[_pos + 1:])
 
-    def updateAutoTransBool(self,_bool):
+    def updateAutoTransBool(self, _bool):
         self.autoTrans = _bool
 
-    def updateAutoDictBool(self,_bool):
+    def updateAutoDictBool(self, _bool):
         self.autoDict = _bool
 
     def closeEvent(self, event):
         self.dictWindow.close()
 
     def sendHotkeyPressedSig(self, Hotkeys):
-        if(Hotkeys is self.Hotkey_OCR):
+        if (Hotkeys is self.Hotkey_OCR):
             self.ocrHotkeyPressed.emit()
+
+    def sendConcatHotkeyPressedSig(self, Hotkeys):
+        if (Hotkeys is self.Hotkey_CONCAT):
+            self.ocrConcatHotkeyPressed.emit()
+
 
     def showConfig(self):
         self.Status = False
@@ -431,24 +532,27 @@ class TransAssistant_class(QtWidgets.QMainWindow, Ui_OCR_Window):
     def getScreenPos(self):
         self.hide()
         self.ScreenPos = getScreenPos()
-        self.PosText.setText(f'{(self.ScreenPos[0], self.ScreenPos[1])},{(self.ScreenPos[0] + self.ScreenPos[2], self.ScreenPos[1] + self.ScreenPos[3])}')
+        self.PosText.setText(
+            f'{(self.ScreenPos[0], self.ScreenPos[1])},{(self.ScreenPos[0] + self.ScreenPos[2], self.ScreenPos[1] + self.ScreenPos[3])}')
         self.show()
         self.AreaInit = True
-        if(((self.ScreenPos[0], self.ScreenPos[1])==(self.ScreenPos[0] + self.ScreenPos[2],self.ScreenPos[1] + self.ScreenPos[3])) or 0 in (self.ScreenPos[2],self.ScreenPos[3])):
+        if (((self.ScreenPos[0], self.ScreenPos[1]) == (
+        self.ScreenPos[0] + self.ScreenPos[2], self.ScreenPos[1] + self.ScreenPos[3])) or 0 in (
+        self.ScreenPos[2], self.ScreenPos[3])):
             self.AreaInit = False
             print('非法选区，请重选！')
-            QtWidgets.QMessageBox.critical(self,"非法选区","选区不合法，请重选！")
+            QtWidgets.QMessageBox.critical(self, "非法选区", "选区不合法，请重选！")
         if self.AreaInit: self.OCRResultTextEdit.setPlaceholderText('')
         self.OCRButton.setEnabled(self.AreaInit)
         self.OCRButtonPlus.setEnabled(self.AreaInit)
 
     def doAutoTrans(self):
-        if(self.autoTrans):
+        if (self.autoTrans):
             self.updateResults()
 
     def getOCRText(self):
-        if(self.AreaInit and self.Status):
-            self.OCRText = getOCRResult(getScreenshot(self.ScreenPos))
+        if (self.AreaInit and self.Status):
+            self.OCRText = getOCRResult(getScreenshot(self.ScreenPos)).strip("()（）")
             self.OCRResultTextEdit.setPlainText(self.OCRText)
             self.doAutoTrans()
 
@@ -456,29 +560,30 @@ class TransAssistant_class(QtWidgets.QMainWindow, Ui_OCR_Window):
         self.OCRText = self.OCRResultTextEdit.toPlainText()
 
     def appendOCRText(self):
-        if(self.AreaInit and self.Status):
-            self.OCRText += getOCRResult(getScreenshot(self.ScreenPos))
+        if (self.AreaInit and self.Status):
+            self.OCRText += getOCRResult(getScreenshot(self.ScreenPos)).strip("()（）")
             self.OCRResultTextEdit.setPlainText(self.OCRText)
             self.doAutoTrans()
 
-    def updateResultTextEdit(self,aimTextEdit:int,text:str):
-        text = nameReplace(text,True)
+    def updateResultTextEdit(self, aimTextEdit: int, text: str):
+        text = nameReplace(text, True)
         self.resultTextEditList[aimTextEdit].setPlainText(text)
 
     def updateResults(self):
         source = self.OCRResultTextEdit.toPlainText()
         self.updateSplitTextEdit(True)
-        if(source):
+        if (source):
             source = nameReplace(source, False)
-            self.TranslatorTreadList = [TranslatorThread(source, eachTranslator, n) for n, eachTranslator in enumerate(self.TranslatorList)]
+            self.TranslatorTreadList = [TranslatorThread(source, eachTranslator, n) for n, eachTranslator in
+                                        enumerate(self.TranslatorList)]
             for eachTread in self.TranslatorTreadList:
                 eachTread._signal.connect(self.updateResultTextEdit)
                 eachTread.start()
 
-    def updateTranslatorList(self, _list:list):
+    def updateTranslatorList(self, _list: list):
         self.TranslatorList = _list
         print(f'当前翻译源为：{self.TranslatorList}')
-        
+
         for n, eachTranslator in enumerate(self.TranslatorList):
             self.resultTextEditList[n].setPlaceholderText(eachTranslator)
 
@@ -487,12 +592,12 @@ class TransAssistant_class(QtWidgets.QMainWindow, Ui_OCR_Window):
             if _len == 0: _len = 1
             for each in self.resultTextEditList[:_len]:
                 each.setVisible(True)
-            for each in self.resultTextEditList[_len-4:]:
+            for each in self.resultTextEditList[_len - 4:]:
                 each.setVisible(False)
 
-            n = 80*(4-_len)
-            self.setFixedSize(self.defaultWidth, self.defaultHeight-n)
-            self.move(self.defaultX, self.defaultY+n)
+            n = 80 * (4 - _len)
+            self.setFixedSize(self.defaultWidth, self.defaultHeight - n)
+            self.move(self.defaultX, self.defaultY + n)
         else:
             for each in self.resultTextEditList:
                 each.setVisible(True)
@@ -503,24 +608,26 @@ class TransAssistant_class(QtWidgets.QMainWindow, Ui_OCR_Window):
         self.SplitMode = mode
         self.updateSplitTextEdit()
 
-    def updateSplitTextEdit(self,Force=False):
+    def updateSplitTextEdit(self, Force=False):
         source = self.OCRResultTextEdit.toPlainText()
-        if(source and (Force or self.SplitMode != 'kuromoji')):
-            self.splitTextEdit.setPlainText(splitWords(source, self.SplitMode)) # type: ignore
+        if (source and (Force or self.SplitMode != 'kuromoji')):
+            self.splitTextEdit.setPlainText(splitWords(source, self.SplitMode))  # type: ignore
 
     def showDictWindow(self):
         self.selectionTextChange.emit(self.selectionText)
         self.dictWindow.inputLineEdit.editingFinished.emit()
         self.dictWindow.show()
-    
+
     def changeOpacity(self, value):
-        self.setWindowOpacity(value/100)
+        self.setWindowOpacity(value / 100)
+
 
 def runGUI():
     GUI_APP = QtWidgets.QApplication(sys.argv)
     GUI_mainWindow = TransAssistant_class()
     GUI_mainWindow.show()
     GUI_APP.exec()
+
 
 if __name__ == "__main__":
     runGUI()
