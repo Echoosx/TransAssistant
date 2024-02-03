@@ -37,7 +37,7 @@ def initConfig() -> None:
                  'ALIYUN_SECRET': '',
                  'SELECTED_TRANSLATORS': [],
                  'Hotkey_OCR': 'Ctrl + Space',
-                 'Hotkey_CONCAT': 'Ctrl + Shift + Space',
+                 'Hotkey_CONCAT': 'Ctrl + Tab',
                  'OCR_APPID': 'c788b7aa',
                  'OCR_SECRET': 'ODFmODQwZWJmZDhlNTIzOTljNGI3OTcy',
                  'OCR_KEY': '7ec53833f14724cffb810c14e72eef0d',

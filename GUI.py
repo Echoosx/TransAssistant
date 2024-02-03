@@ -289,7 +289,7 @@ class configWidget_class(QtWidgets.QWidget, Ui_Config):
         self.parent.changeHotkey(self.Hotkey_OCR)
         self.parent.changeConcatHotkey(self.Hotkey_CONCAT)
         self.parent.updateTranslatorList(self.getCurrentSelectedTranslator())
-        reloadOCRConfig();
+        reloadOCRConfig()
         reloadTranslatorConfig()
         self.close()
 
@@ -427,6 +427,7 @@ class TransAssistant_class(QtWidgets.QMainWindow, Ui_OCR_Window):
         self.resultTextEditList = self.TransResult_0, self.TransResult_1, self.TransResult_2, self.TransResult_3
         self.updateTranslatorList(self.ConfigDict['SELECTED_TRANSLATORS'])
         self.autoTrans = True
+
         if (not isInit):
             self.showConfig()
 
@@ -460,9 +461,8 @@ class TransAssistant_class(QtWidgets.QMainWindow, Ui_OCR_Window):
         try:
             self.registerConcatHotkey(_hotkey)
             self.Hotkey_CONCAT = _hotkey
-            self.ConcatShortcutKeyText.setText(self.Hotkey_CONCAT)
             print(f'当前快捷键： {self.Hotkey_CONCAT}')
-        except Exception:
+        except Exception as e:
             with contextlib.suppress(Exception):
                 self.registerConcatHotkey(_hotkeyTemp)
             print(f'设置{_hotkey}为快捷键失败')
@@ -551,6 +551,7 @@ class TransAssistant_class(QtWidgets.QMainWindow, Ui_OCR_Window):
             self.updateResults()
 
     def getOCRText(self):
+        print("Get OCR")
         if (self.AreaInit and self.Status):
             self.OCRText = getOCRResult(getScreenshot(self.ScreenPos)).strip("()（）")
             self.OCRResultTextEdit.setPlainText(self.OCRText)
@@ -560,6 +561,7 @@ class TransAssistant_class(QtWidgets.QMainWindow, Ui_OCR_Window):
         self.OCRText = self.OCRResultTextEdit.toPlainText()
 
     def appendOCRText(self):
+        print("Append OCR")
         if (self.AreaInit and self.Status):
             self.OCRText += getOCRResult(getScreenshot(self.ScreenPos)).strip("()（）")
             self.OCRResultTextEdit.setPlainText(self.OCRText)
