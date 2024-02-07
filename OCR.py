@@ -10,10 +10,13 @@ import json
 import requests
 import cv2
 from urllib3 import disable_warnings
+
 disable_warnings()
 
 from Config import readConfig, NOPROXIES
+
 configs = readConfig()
+
 
 def reloadOCRConfig():
     global configs
@@ -65,11 +68,13 @@ def assemble_ws_auth_url(requset_url: str, method="POST", api_key="", api_secret
     now = datetime.now()
     date = format_date_time(mktime(now.timetuple()))
     signature_origin = f"host: {host}\ndate: {date}\n{method} {path} HTTP/1.1"
-    signature_sha = hmac.new(api_secret.encode('utf-8'), signature_origin.encode('utf-8'), digestmod=hashlib.sha256).digest()
+    signature_sha = hmac.new(api_secret.encode('utf-8'), signature_origin.encode('utf-8'),
+                             digestmod=hashlib.sha256).digest()
     signature_sha = base64.b64encode(signature_sha).decode(encoding='utf-8')
-    
-    authorization_origin = "api_key=\"%s\", algorithm=\"%s\", headers=\"%s\", signature=\"%s\"" % (api_key, "hmac-sha256", "host date request-line", signature_sha)
-    
+
+    authorization_origin = "api_key=\"%s\", algorithm=\"%s\", headers=\"%s\", signature=\"%s\"" % (
+    api_key, "hmac-sha256", "host date request-line", signature_sha)
+
     authorization = base64.b64encode(authorization_origin.encode('utf-8')).decode(encoding='utf-8')
     values = {"host": host, "date": date, "authorization": authorization}
     return f'{requset_url}?{urlencode(values)}'
@@ -83,13 +88,15 @@ def formatJson(JsonRawText: str) -> str:
                 lineWordsStr = str()
                 for eachWords in eachLines['words']:
                     lineWordsStr += eachWords['content']
-                return(lineWordsStr)
+                return (lineWordsStr)
     except KeyError:
         return '无法获取有效内容OvO'
 
+
 def checkSecretAvailable(appId: str, apiSecret: str, apiKey: str) -> bool:
     url = 'https://api.xf-yun.com/v1/private/s00b65163'
-    _body = {"header": {"app_id": appId, "status": 3}, "parameter": {"s00b65163": {"category": "mix0", "result": {"encoding": "utf8", "compress": "raw", "format": "json"}}}}
+    _body = {"header": {"app_id": appId, "status": 3}, "parameter": {
+        "s00b65163": {"category": "mix0", "result": {"encoding": "utf8", "compress": "raw", "format": "json"}}}}
     request_url = assemble_ws_auth_url(url, "POST", apiKey, apiSecret)
     headers = {'content-type': "application/json", 'host': 'api.xf-yun.com', 'app_id': appId}
     try:
@@ -98,10 +105,14 @@ def checkSecretAvailable(appId: str, apiSecret: str, apiKey: str) -> bool:
     except Exception:
         return False
 
+
 def getOCRResult(img) -> str:
     imageBytes = cv2ImgToBytes(img)
     url = 'https://api.xf-yun.com/v1/private/s00b65163'
-    body = {"header": {"app_id": configs['OCR_APPID'], "status": 3}, "parameter": {"s00b65163": {"category": "mix0", "result": {"encoding": "utf8", "compress": "raw", "format": "json"}}}, "payload": {"s00b65163_data_1": {"encoding": "png", "image": str(base64.b64encode(imageBytes), 'UTF-8'), "status": 3}}}
+    body = {"header": {"app_id": configs['OCR_APPID'], "status": 3}, "parameter": {
+        "s00b65163": {"category": "mix0", "result": {"encoding": "utf8", "compress": "raw", "format": "json"}}},
+            "payload": {"s00b65163_data_1": {"encoding": "png", "image": str(base64.b64encode(imageBytes), 'UTF-8'),
+                                             "status": 3}}}
     request_url = assemble_ws_auth_url(url, "POST", configs['OCR_KEY'], configs['OCR_SECRET'])
     headers = {'content-type': "application/json", 'host': 'api.xf-yun.com', 'app_id': configs['OCR_APPID']}
     try:
@@ -114,9 +125,13 @@ def getOCRResult(img) -> str:
 
     return formatJson(finalResult)
 
+
 def getOCRSecret() -> tuple:
     url = "aHR0cDovL3hmLmFrYS50b2RheS92My91c2VyX2luZm8ucGhwP29wZW5faWQ9ZmZkNjI2NDM0NDI1NDQ5MDk3YzcxZmUwMGJmYTBmNTU="
-    return tuple((eachDict['appId'], eachDict['apiSecret2'], eachDict['apiKey2']) for eachDict in requests.get(base64.b64decode(url), verify=False, proxies=NOPROXIES).json()['data']['all_share'] if(eachDict['apiKey2'] and eachDict['apiSecret2']))
+    return tuple((eachDict['appId'], eachDict['apiSecret2'], eachDict['apiKey2']) for eachDict in
+                 requests.get(base64.b64decode(url), verify=False, proxies=NOPROXIES).json()['data']['all_share'] if
+                 (eachDict['apiKey2'] and eachDict['apiSecret2']))
+
 
 def getVaildOCRSecert() -> tuple:
-    return tuple(each for each in getOCRSecret() if(checkSecretAvailable(each[0], each[1], each[2])))
+    return tuple(each for each in getOCRSecret() if (checkSecretAvailable(each[0], each[1], each[2])))

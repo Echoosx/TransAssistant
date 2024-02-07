@@ -1,30 +1,33 @@
-import random
-
-import urllib
-from Config import readConfig, NOPROXIES
-import requests
-import time
-import uuid
 import hashlib
 import json
+import random
+import time
+import urllib
+import uuid
+import http.client
 
+import requests
+from aliyunsdkalimt.request.v20181012 import TranslateGeneralRequest
+from aliyunsdkcore.client import AcsClient
 from tencentcloud.common import credential
+from tencentcloud.common.exception.tencent_cloud_sdk_exception import TencentCloudSDKException
 from tencentcloud.common.profile.client_profile import ClientProfile
 from tencentcloud.common.profile.http_profile import HttpProfile
-from tencentcloud.common.exception.tencent_cloud_sdk_exception import TencentCloudSDKException
 from tencentcloud.tmt.v20180321 import tmt_client, models
-
-from aliyunsdkcore.client import AcsClient
-from aliyunsdkalimt.request.v20181012 import TranslateGeneralRequest
-
 from urllib3 import disable_warnings
+
+
+from Config import readConfig, NOPROXIES
+
 disable_warnings()
 
 configs = readConfig()
 
+
 def reloadTranslatorConfig():
     global configs
     configs = readConfig()
+
 
 def truncate(input):
     if input is None:
@@ -68,7 +71,6 @@ YOUDAO_ERRORCODE_DICT = {
     412: '长请求过于频繁，请稍后访问',
 }
 
-
 BAIDU_ERRORCODE_DICT = {
     '52001': '请求超时',
     '52002': '系统错误',
@@ -83,7 +85,6 @@ BAIDU_ERRORCODE_DICT = {
     '58002': '服务当前已关闭',
     '90107': '认证未通过或未生效',
 }
-
 
 TENCENT_ERRORCODE_DICT = {
     'InvalidCredential': f'ID无效{CONFIG_REMIND}',
@@ -107,8 +108,8 @@ TENCENT_ERRORCODE_DICT = {
     'UnsupportedOperation.UnsupportedSourceLanguage': '不支持的源语言',
 }
 
-
 CAIYUN_ERRORCODE_DICT = {'Invalid token': f'Token无效{CONFIG_REMIND}'}
+
 
 def YoudaoTranslator(QueryText: str) -> str:
     YOUDAO_URL = "https://aidemo.youdao.com/trans" if configs['YOUDAO_FREE_RIDER'] else "https://openapi.youdao.com/api"
@@ -121,7 +122,7 @@ def YoudaoTranslator(QueryText: str) -> str:
     _data = {
         "from": "auto",
         "to": "zh-CHS",
-        "signType":  "v3",
+        "signType": "v3",
         "curtime": curtime,
         "appKey": configs['YOUDAO_KEY'],
         "q": QueryText,
@@ -134,7 +135,7 @@ def YoudaoTranslator(QueryText: str) -> str:
         response = requests.post(YOUDAO_URL, data=_data, headers=_headers, verify=False, timeout=5, proxies=NOPROXIES)
         return_dict = json.loads(response.content.decode("utf-8"))
         errorCode = int(return_dict['errorCode'])
-        if(errorCode!=0):
+        if (errorCode != 0):
             return YOUDAO_ERRORCODE_DICT.get(errorCode, "未知错误:" + return_dict['errorCode'])
         return return_dict["translation"][0]
     except Exception as err:
@@ -144,7 +145,7 @@ def YoudaoTranslator(QueryText: str) -> str:
 def CaiYunTranslator(QueryText: str) -> str:
     url = "https://api.interpreter.caiyunai.com/v1/translator"
     CAIYUN_TOKEN = configs['CAIYUN_TOKEN']
-    if(configs['CAIYUN_FREE_RIDER']):
+    if (configs['CAIYUN_FREE_RIDER']):
         CAIYUN_TOKEN = 'ukiw3nrioeilf0mlpam7'
     QueryText = [QueryText]
     payload = {
@@ -171,11 +172,11 @@ def CaiYunTranslator(QueryText: str) -> str:
         return str(e)
 
 
-def BaiduTranslator(QueryText:str) -> str:
+def BaiduTranslator(QueryText: str) -> str:
     BAIDU_APPID = configs['BAIDU_APPID']
     BAIDU_SECRETKEY = configs['BAIDU_SECRETKEY']
     BAIDU_URL = 'https://api.fanyi.baidu.com/api/trans/vip/translate'
-    if(configs['BAIDU_FREE_RIDER']):
+    if (configs['BAIDU_FREE_RIDER']):
         BAIDU_APPID = '20151211000007653'
         BAIDU_SECRETKEY = 'IFJB6jBORFuMmVGDRude'
     fromLang = 'auto'
@@ -190,12 +191,13 @@ def BaiduTranslator(QueryText:str) -> str:
     try:
         return return_dict['trans_result'][0]['dst']
     except KeyError:
-        return BAIDU_ERRORCODE_DICT.get(return_dict['error_code'], "未知错误:" + return_dict['error_code']) + return_dict['error_msg']
+        return BAIDU_ERRORCODE_DICT.get(return_dict['error_code'], "未知错误:" + return_dict['error_code']) + return_dict[
+            'error_msg']
     except Exception as e:
         return str(e)
 
 
-def TencentTranslator(QueryText:str) -> str:
+def TencentTranslator(QueryText: str) -> str:
     try:
         cred = credential.Credential(configs['TENCENT_SECERTID'], configs['TENCENT_SECERTKEY'])
         httpProfile = HttpProfile()
@@ -220,31 +222,36 @@ def TencentTranslator(QueryText:str) -> str:
     except Exception as e:
         return str(e)
 
-def GoogleTranslator(text:str) -> str:
+
+def GoogleTranslator(text: str) -> str:
     try:
-        request_result = requests.get(f"https://translate.googleapis.com/translate_a/single?client=gtx&dt=t&sl=ja&tl=zh-cn&q={text}",verify=False,proxies=NOPROXIES)
+        request_result = requests.get(
+            f"https://translate.googleapis.com/translate_a/single?client=gtx&dt=t&sl=ja&tl=zh-cn&q={text}",
+            verify=False, proxies=NOPROXIES)
         return json.loads(request_result.content.decode('utf-8'))[0][0][0]
     except Exception as e:
-        return(f"GoogleAPI暂时不可用，详情：{e}")
+        return (f"GoogleAPI暂时不可用，详情：{e}")
 
-def XiaoniuTranslator(sentence:str) -> str:
+
+def XiaoniuTranslator(sentence: str) -> str:
     url = 'http://api.niutrans.com/NiuTransServer/translation?'
-    data = {"from":'ja', "to":'zh', "apikey":configs['XIAONIU_KEY'], "src_text": sentence}
+    data = {"from": 'ja', "to": 'zh', "apikey": configs['XIAONIU_KEY'], "src_text": sentence}
     req = requests.post(url, data=data, proxies=NOPROXIES)
     try:
         result_dict = json.loads(req.content.decode('utf-8'))
-        if('error_msg'in result_dict):
+        if ('error_msg' in result_dict):
             return result_dict['error_msg'] + CONFIG_REMIND
         return result_dict['tgt_text']
     except Exception as e:
         return f'{UNDEFINED_ERROR_MESSAGE}，详情：{e}'
 
-def AliyunTranslator(QueryText:str) -> str:
+
+def AliyunTranslator(QueryText: str) -> str:
     try:
         client = AcsClient(
             configs['ALIYUN_KEY'],
             configs['ALIYUN_SECRET'],
-            "cn-hangzhou" 
+            "cn-hangzhou"
         )
         request = TranslateGeneralRequest.TranslateGeneralRequest()
         request.set_SourceLanguage("auto")
@@ -254,11 +261,45 @@ def AliyunTranslator(QueryText:str) -> str:
         request.set_method("POST")
         response = client.do_action_with_exception(request)
         tempResult = json.loads(response)
-        if(tempResult['Code'] != '200'):
+        if (tempResult['Code'] != '200'):
             return tempResult['Message'] + CONFIG_REMIND
         return tempResult['Data']['Translated']
     except Exception as e:
         return f"{UNDEFINED_ERROR_MESSAGE}，详情：{e}"
+
+
+def ChatgptTranslator(QueryText: str) -> str:
+    try:
+        conn = http.client.HTTPSConnection("api.chatanywhere.tech")
+        payload = json.dumps({
+            "model": "gpt-3.5-turbo",
+            "messages": [
+                {
+                    "role": "user",
+                    "content": "现在你将扮演一名专业的翻译，请将以下内容翻译成中文，仅输出翻译，不要重复原文"
+                },
+                {
+                    "role": "user",
+                    "content": QueryText
+                }
+            ]
+        })
+        headers = {
+            'Authorization': f'Bearer {configs["OPENAI_API"]}',
+            'User-Agent': 'Apifox/1.0.0 (https://apifox.com)',
+            'Content-Type': 'application/json'
+        }
+        conn.request("POST", "/v1/chat/completions", payload, headers)
+        data = conn.getresponse().read()
+        try:
+            result = json.loads(data)["choices"][0]["message"]["content"]
+            return result
+        except Exception:
+            error_code = json.loads(data)["error"]["code"]
+            error_message = json.loads(data)["error"]["message"]
+            return f"{error_code}: {error_message}"
+    except Exception as e:
+        return f"请求错误：{e}"
 
 
 TranslatorMapping = {
@@ -268,5 +309,6 @@ TranslatorMapping = {
     '腾讯云翻译': TencentTranslator,
     'Google翻译': GoogleTranslator,
     '小牛翻译': XiaoniuTranslator,
-    '阿里云翻译': AliyunTranslator
+    '阿里云翻译': AliyunTranslator,
+    'ChatGPT': ChatgptTranslator,
 }

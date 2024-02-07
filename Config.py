@@ -35,6 +35,7 @@ def initConfig() -> None:
                  'XIAONIU_KEY': '',
                  'ALIYUN_KEY': '',
                  'ALIYUN_SECRET': '',
+                 'OPENAI_API': '',
                  'SELECTED_TRANSLATORS': [],
                  'Hotkey_OCR': 'Ctrl + Space',
                  'Hotkey_CONCAT': 'Ctrl + Tab',
@@ -45,7 +46,7 @@ def initConfig() -> None:
                  'CAIYUN_FREE_RIDER': False,
                  'BAIDU_FREE_RIDER': False,
                  'TENCENT_FREE_RIDER': False,
-                 'OPACITY': 95}
+                 'OPACITY': 100}
     writeConfig(emptyData)
 
 

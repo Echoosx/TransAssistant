@@ -124,6 +124,7 @@ class configWidget_class(QtWidgets.QWidget, Ui_Config):
             'XIAONIU_KEY': self.LineEdit_XiaoNiuKEY,
             'ALIYUN_KEY': self.LineEdit_AliYunKEY,
             'ALIYUN_SECRET': self.LineEdit_AliYunSECRET,
+            'OPENAI_API': self.LineEdit_OpenaiAPI,
             'OCR_APPID': self.LineEdit_OCRAPPID,
             'OCR_SECRET': self.LineEdit_OCRSECRET,
             'OCR_KEY': self.LineEdit_OCRKEY,

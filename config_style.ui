@@ -9,8 +9,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>459</width>
-    <height>503</height>
+    <width>458</width>
+    <height>564</height>
    </rect>
   </property>
   <property name="maximumSize">
@@ -34,7 +34,7 @@
      <x>-10</x>
      <y>0</y>
      <width>471</width>
-     <height>501</height>
+     <height>563</height>
     </rect>
    </property>
    <property name="sizePolicy">
@@ -61,6 +61,9 @@
    <property name="horizontalScrollBarPolicy">
     <enum>Qt::ScrollBarAlwaysOff</enum>
    </property>
+   <property name="sizeAdjustPolicy">
+    <enum>QAbstractScrollArea::AdjustToContents</enum>
+   </property>
    <property name="widgetResizable">
     <bool>false</bool>
    </property>
@@ -68,9 +71,9 @@
     <property name="geometry">
      <rect>
       <x>0</x>
-      <y>-360</y>
+      <y>0</y>
       <width>450</width>
-      <height>1150</height>
+      <height>1240</height>
      </rect>
     </property>
     <property name="minimumSize">
@@ -84,249 +87,18 @@
       <rect>
        <x>20</x>
        <y>10</y>
-       <width>361</width>
+       <width>311</width>
        <height>31</height>
       </rect>
      </property>
      <property name="font">
       <font>
        <family>Microsoft YaHei UI</family>
-       <pointsize>20</pointsize>
+       <pointsize>18</pointsize>
       </font>
      </property>
      <property name="text">
       <string>配置界面 - 请填写以下配置↓</string>
-     </property>
-    </widget>
-    <widget class="QLabel" name="Label_HelpLink">
-     <property name="geometry">
-      <rect>
-       <x>350</x>
-       <y>50</y>
-       <width>91</width>
-       <height>21</height>
-      </rect>
-     </property>
-     <property name="font">
-      <font>
-       <pointsize>11</pointsize>
-      </font>
-     </property>
-     <property name="text">
-      <string>&lt;a href=&quot;https://github.com/GayWindTech/TransAssistant/blob/main/README.md&quot;&gt;查看填写帮助&lt;/a&gt;</string>
-     </property>
-     <property name="openExternalLinks">
-      <bool>true</bool>
-     </property>
-    </widget>
-    <widget class="QLineEdit" name="LineEdit_CaiYunTOKEN">
-     <property name="geometry">
-      <rect>
-       <x>30</x>
-       <y>190</y>
-       <width>411</width>
-       <height>31</height>
-      </rect>
-     </property>
-     <property name="font">
-      <font>
-       <family>Microsoft YaHei UI</family>
-       <pointsize>11</pointsize>
-      </font>
-     </property>
-     <property name="focusPolicy">
-      <enum>Qt::ClickFocus</enum>
-     </property>
-     <property name="placeholderText">
-      <string>请输入彩云小译API_TOKEN</string>
-     </property>
-    </widget>
-    <widget class="QLineEdit" name="LineEdit_BaiduAPPID">
-     <property name="geometry">
-      <rect>
-       <x>30</x>
-       <y>240</y>
-       <width>411</width>
-       <height>31</height>
-      </rect>
-     </property>
-     <property name="font">
-      <font>
-       <family>Microsoft YaHei UI</family>
-       <pointsize>11</pointsize>
-      </font>
-     </property>
-     <property name="focusPolicy">
-      <enum>Qt::ClickFocus</enum>
-     </property>
-     <property name="placeholderText">
-      <string>请输入百度翻译API_APPID</string>
-     </property>
-    </widget>
-    <widget class="QPushButton" name="confirmHotKeyButton">
-     <property name="geometry">
-      <rect>
-       <x>270</x>
-       <y>570</y>
-       <width>41</width>
-       <height>21</height>
-      </rect>
-     </property>
-     <property name="font">
-      <font>
-       <family>Microsoft YaHei UI</family>
-       <pointsize>10</pointsize>
-      </font>
-     </property>
-     <property name="focusPolicy">
-      <enum>Qt::NoFocus</enum>
-     </property>
-     <property name="toolTip">
-      <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;确认更改快捷键&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-     </property>
-     <property name="statusTip">
-      <string/>
-     </property>
-     <property name="whatsThis">
-      <string/>
-     </property>
-     <property name="accessibleDescription">
-      <string/>
-     </property>
-     <property name="text">
-      <string>确认</string>
-     </property>
-    </widget>
-    <widget class="QLineEdit" name="LineEdit_TencentSECRET">
-     <property name="geometry">
-      <rect>
-       <x>30</x>
-       <y>350</y>
-       <width>411</width>
-       <height>31</height>
-      </rect>
-     </property>
-     <property name="font">
-      <font>
-       <family>Microsoft YaHei UI</family>
-       <pointsize>11</pointsize>
-      </font>
-     </property>
-     <property name="focusPolicy">
-      <enum>Qt::ClickFocus</enum>
-     </property>
-     <property name="placeholderText">
-      <string>请输入腾讯云翻译API_SECRET</string>
-     </property>
-    </widget>
-    <widget class="QPushButton" name="changeHotKeyButton">
-     <property name="geometry">
-      <rect>
-       <x>270</x>
-       <y>570</y>
-       <width>41</width>
-       <height>21</height>
-      </rect>
-     </property>
-     <property name="font">
-      <font>
-       <family>Microsoft YaHei UI</family>
-       <pointsize>10</pointsize>
-      </font>
-     </property>
-     <property name="focusPolicy">
-      <enum>Qt::NoFocus</enum>
-     </property>
-     <property name="toolTip">
-      <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;确认更改快捷键&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-     </property>
-     <property name="statusTip">
-      <string/>
-     </property>
-     <property name="whatsThis">
-      <string/>
-     </property>
-     <property name="accessibleDescription">
-      <string/>
-     </property>
-     <property name="text">
-      <string>更改</string>
-     </property>
-    </widget>
-    <widget class="oneKeyQKeySequenceEdit" name="OCRKeyEdit">
-     <property name="geometry">
-      <rect>
-       <x>100</x>
-       <y>570</y>
-       <width>161</width>
-       <height>20</height>
-      </rect>
-     </property>
-     <property name="toolTip">
-      <string>摁下快捷键以键入</string>
-     </property>
-     <property name="keySequence">
-      <string extracomment="请按下组合键"/>
-     </property>
-    </widget>
-    <widget class="QLabel" name="Label_XiaoNiu">
-     <property name="geometry">
-      <rect>
-       <x>30</x>
-       <y>380</y>
-       <width>91</width>
-       <height>20</height>
-      </rect>
-     </property>
-     <property name="font">
-      <font>
-       <family>Microsoft YaHei UI</family>
-       <pointsize>11</pointsize>
-      </font>
-     </property>
-     <property name="text">
-      <string>小牛翻译API</string>
-     </property>
-    </widget>
-    <widget class="QLabel" name="Label_CaiYun">
-     <property name="geometry">
-      <rect>
-       <x>30</x>
-       <y>170</y>
-       <width>91</width>
-       <height>20</height>
-      </rect>
-     </property>
-     <property name="font">
-      <font>
-       <family>Microsoft YaHei UI</family>
-       <pointsize>11</pointsize>
-      </font>
-     </property>
-     <property name="text">
-      <string>彩云小译API</string>
-     </property>
-    </widget>
-    <widget class="QLineEdit" name="LineEdit_YoudaoSECRET">
-     <property name="geometry">
-      <rect>
-       <x>30</x>
-       <y>140</y>
-       <width>411</width>
-       <height>31</height>
-      </rect>
-     </property>
-     <property name="font">
-      <font>
-       <family>Microsoft YaHei UI</family>
-       <pointsize>11</pointsize>
-      </font>
-     </property>
-     <property name="focusPolicy">
-      <enum>Qt::ClickFocus</enum>
-     </property>
-     <property name="placeholderText">
-      <string>请输入有道翻译API_SECRET</string>
      </property>
     </widget>
     <widget class="QPushButton" name="Button_Save">
@@ -351,1145 +123,1523 @@
       <string>保存</string>
      </property>
     </widget>
-    <widget class="QLabel" name="Label_Baidu">
-     <property name="geometry">
-      <rect>
-       <x>30</x>
-       <y>220</y>
-       <width>91</width>
-       <height>20</height>
-      </rect>
-     </property>
-     <property name="font">
-      <font>
-       <family>Microsoft YaHei UI</family>
-       <pointsize>11</pointsize>
-      </font>
-     </property>
-     <property name="text">
-      <string>百度翻译API</string>
-     </property>
-    </widget>
-    <widget class="QLineEdit" name="LineEdit_TencentKEY">
-     <property name="geometry">
-      <rect>
-       <x>30</x>
-       <y>320</y>
-       <width>411</width>
-       <height>31</height>
-      </rect>
-     </property>
-     <property name="font">
-      <font>
-       <family>Microsoft YaHei UI</family>
-       <pointsize>11</pointsize>
-      </font>
-     </property>
-     <property name="focusPolicy">
-      <enum>Qt::ClickFocus</enum>
-     </property>
-     <property name="placeholderText">
-      <string>请输入腾讯云翻译API_KEY</string>
-     </property>
-    </widget>
-    <widget class="QLineEdit" name="LineEdit_YoudaoKEY">
-     <property name="geometry">
-      <rect>
-       <x>30</x>
-       <y>110</y>
-       <width>411</width>
-       <height>31</height>
-      </rect>
-     </property>
-     <property name="font">
-      <font>
-       <family>Microsoft YaHei UI</family>
-       <pointsize>11</pointsize>
-      </font>
-     </property>
-     <property name="focusPolicy">
-      <enum>Qt::ClickFocus</enum>
-     </property>
-     <property name="placeholderText">
-      <string>请输入有道翻译API_KEY</string>
-     </property>
-    </widget>
-    <widget class="QLineEdit" name="LineEdit_XiaoNiuKEY">
-     <property name="geometry">
-      <rect>
-       <x>30</x>
-       <y>400</y>
-       <width>411</width>
-       <height>31</height>
-      </rect>
-     </property>
-     <property name="font">
-      <font>
-       <family>Microsoft YaHei UI</family>
-       <pointsize>11</pointsize>
-      </font>
-     </property>
-     <property name="focusPolicy">
-      <enum>Qt::ClickFocus</enum>
-     </property>
-     <property name="placeholderText">
-      <string>请输入小牛翻译API_KEY</string>
-     </property>
-    </widget>
-    <widget class="QLabel" name="Label_ShortcutKeyText">
-     <property name="geometry">
-      <rect>
-       <x>100</x>
-       <y>570</y>
-       <width>161</width>
-       <height>20</height>
-      </rect>
-     </property>
-     <property name="font">
-      <font>
-       <family>Microsoft YaHei UI</family>
-       <pointsize>11</pointsize>
-       <underline>true</underline>
-      </font>
-     </property>
-     <property name="text">
-      <string/>
-     </property>
-     <property name="alignment">
-      <set>Qt::AlignCenter</set>
-     </property>
-    </widget>
-    <widget class="QLabel" name="Label_Tencent">
-     <property name="geometry">
-      <rect>
-       <x>30</x>
-       <y>300</y>
-       <width>101</width>
-       <height>20</height>
-      </rect>
-     </property>
-     <property name="font">
-      <font>
-       <family>Microsoft YaHei UI</family>
-       <pointsize>11</pointsize>
-      </font>
-     </property>
-     <property name="text">
-      <string>腾讯云翻译API</string>
-     </property>
-    </widget>
-    <widget class="QLineEdit" name="LineEdit_BaiduSECRETKEY">
-     <property name="geometry">
-      <rect>
-       <x>30</x>
-       <y>270</y>
-       <width>411</width>
-       <height>31</height>
-      </rect>
-     </property>
-     <property name="font">
-      <font>
-       <family>Microsoft YaHei UI</family>
-       <pointsize>11</pointsize>
-      </font>
-     </property>
-     <property name="focusPolicy">
-      <enum>Qt::ClickFocus</enum>
-     </property>
-     <property name="placeholderText">
-      <string>请输入百度翻译API_SECRETKEY</string>
-     </property>
-    </widget>
-    <widget class="QPushButton" name="cancelHotKeyButton">
-     <property name="geometry">
-      <rect>
-       <x>320</x>
-       <y>570</y>
-       <width>41</width>
-       <height>21</height>
-      </rect>
-     </property>
-     <property name="font">
-      <font>
-       <family>Microsoft YaHei UI</family>
-       <pointsize>10</pointsize>
-      </font>
-     </property>
-     <property name="focusPolicy">
-      <enum>Qt::NoFocus</enum>
-     </property>
-     <property name="toolTip">
-      <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;确认更改快捷键&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-     </property>
-     <property name="statusTip">
-      <string/>
-     </property>
-     <property name="whatsThis">
-      <string/>
-     </property>
-     <property name="accessibleDescription">
-      <string/>
-     </property>
-     <property name="text">
-      <string>取消</string>
-     </property>
-    </widget>
-    <widget class="QLabel" name="Label_OCRHotkey">
-     <property name="geometry">
-      <rect>
-       <x>30</x>
-       <y>570</y>
-       <width>71</width>
-       <height>20</height>
-      </rect>
-     </property>
-     <property name="font">
-      <font>
-       <family>Microsoft YaHei UI</family>
-       <pointsize>11</pointsize>
-      </font>
-     </property>
-     <property name="text">
-      <string>OCR热键：</string>
-     </property>
-    </widget>
-    <widget class="QLabel" name="Label_Youdao">
-     <property name="geometry">
-      <rect>
-       <x>30</x>
-       <y>90</y>
-       <width>91</width>
-       <height>20</height>
-      </rect>
-     </property>
-     <property name="font">
-      <font>
-       <family>Microsoft YaHei UI</family>
-       <pointsize>11</pointsize>
-      </font>
-     </property>
-     <property name="text">
-      <string>有道翻译API</string>
-     </property>
-    </widget>
-    <widget class="QListWidget" name="ListWidget_SelectableSource">
-     <property name="geometry">
-      <rect>
-       <x>20</x>
-       <y>690</y>
-       <width>201</width>
-       <height>171</height>
-      </rect>
-     </property>
-     <property name="font">
-      <font>
-       <pointsize>11</pointsize>
-      </font>
-     </property>
-     <property name="focusPolicy">
-      <enum>Qt::StrongFocus</enum>
-     </property>
-     <property name="verticalScrollBarPolicy">
-      <enum>Qt::ScrollBarAlwaysOn</enum>
-     </property>
-    </widget>
-    <widget class="QListWidget" name="ListWidget_SelectedSource">
-     <property name="geometry">
-      <rect>
-       <x>240</x>
-       <y>690</y>
-       <width>201</width>
-       <height>171</height>
-      </rect>
-     </property>
-     <property name="font">
-      <font>
-       <pointsize>11</pointsize>
-      </font>
-     </property>
-     <property name="focusPolicy">
-      <enum>Qt::StrongFocus</enum>
-     </property>
-     <property name="verticalScrollBarPolicy">
-      <enum>Qt::ScrollBarAlwaysOn</enum>
-     </property>
-     <property name="dragEnabled">
-      <bool>true</bool>
-     </property>
-    </widget>
-    <widget class="Line" name="Line_3">
+    <widget class="QFrame" name="TransSource">
      <property name="geometry">
       <rect>
        <x>10</x>
-       <y>620</y>
+       <y>670</y>
        <width>441</width>
-       <height>21</height>
+       <height>291</height>
       </rect>
+     </property>
+     <property name="frameShape">
+      <enum>QFrame::StyledPanel</enum>
      </property>
      <property name="frameShadow">
-      <enum>QFrame::Sunken</enum>
+      <enum>QFrame::Raised</enum>
      </property>
-     <property name="lineWidth">
-      <number>2</number>
-     </property>
-     <property name="orientation">
-      <enum>Qt::Horizontal</enum>
-     </property>
+     <widget class="QPushButton" name="PushButton_SourceUP">
+      <property name="geometry">
+       <rect>
+        <x>320</x>
+        <y>260</y>
+        <width>51</width>
+        <height>21</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <pointsize>10</pointsize>
+        <bold>false</bold>
+       </font>
+      </property>
+      <property name="focusPolicy">
+       <enum>Qt::ClickFocus</enum>
+      </property>
+      <property name="text">
+       <string>上移</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="Label_SelectableSource">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>60</y>
+        <width>101</width>
+        <height>20</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>Microsoft YaHei UI</family>
+        <pointsize>12</pointsize>
+       </font>
+      </property>
+      <property name="text">
+       <string>可使用翻译源</string>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignCenter</set>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="PushButton_SourceDisable">
+      <property name="geometry">
+       <rect>
+        <x>350</x>
+        <y>60</y>
+        <width>81</width>
+        <height>21</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <pointsize>10</pointsize>
+        <bold>false</bold>
+       </font>
+      </property>
+      <property name="focusPolicy">
+       <enum>Qt::ClickFocus</enum>
+      </property>
+      <property name="text">
+       <string>禁用选中源</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="PushButton_SourceEnable">
+      <property name="geometry">
+       <rect>
+        <x>130</x>
+        <y>60</y>
+        <width>81</width>
+        <height>21</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <pointsize>10</pointsize>
+        <bold>false</bold>
+       </font>
+      </property>
+      <property name="focusPolicy">
+       <enum>Qt::ClickFocus</enum>
+      </property>
+      <property name="text">
+       <string>启用选中源</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="Label_SourceSort">
+      <property name="geometry">
+       <rect>
+        <x>230</x>
+        <y>260</y>
+        <width>81</width>
+        <height>20</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>Microsoft YaHei UI</family>
+        <pointsize>11</pointsize>
+       </font>
+      </property>
+      <property name="text">
+       <string>翻译源排序：</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="Label_SourceTips">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>260</y>
+        <width>131</width>
+        <height>20</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>Microsoft YaHei UI</family>
+        <pointsize>10</pointsize>
+       </font>
+      </property>
+      <property name="text">
+       <string>*最多可选四个翻译源</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="Label_SelectedSource">
+      <property name="geometry">
+       <rect>
+        <x>230</x>
+        <y>60</y>
+        <width>101</width>
+        <height>20</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>Microsoft YaHei UI</family>
+        <pointsize>12</pointsize>
+       </font>
+      </property>
+      <property name="text">
+       <string>已启用翻译源</string>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignCenter</set>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="PushButton_SourceDown">
+      <property name="geometry">
+       <rect>
+        <x>380</x>
+        <y>260</y>
+        <width>51</width>
+        <height>21</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <pointsize>10</pointsize>
+        <bold>false</bold>
+       </font>
+      </property>
+      <property name="focusPolicy">
+       <enum>Qt::ClickFocus</enum>
+      </property>
+      <property name="text">
+       <string>下移</string>
+      </property>
+     </widget>
+     <widget class="QListWidget" name="ListWidget_SelectedSource">
+      <property name="geometry">
+       <rect>
+        <x>230</x>
+        <y>85</y>
+        <width>201</width>
+        <height>171</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <pointsize>11</pointsize>
+       </font>
+      </property>
+      <property name="focusPolicy">
+       <enum>Qt::StrongFocus</enum>
+      </property>
+      <property name="verticalScrollBarPolicy">
+       <enum>Qt::ScrollBarAlwaysOn</enum>
+      </property>
+      <property name="dragEnabled">
+       <bool>true</bool>
+      </property>
+     </widget>
+     <widget class="QListWidget" name="ListWidget_SelectableSource">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>85</y>
+        <width>201</width>
+        <height>171</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <pointsize>11</pointsize>
+       </font>
+      </property>
+      <property name="focusPolicy">
+       <enum>Qt::StrongFocus</enum>
+      </property>
+      <property name="verticalScrollBarPolicy">
+       <enum>Qt::ScrollBarAlwaysOn</enum>
+      </property>
+     </widget>
+     <widget class="QLabel" name="Label_TranslatorSourcesSetting">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>30</y>
+        <width>151</width>
+        <height>20</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>Microsoft YaHei UI</family>
+        <pointsize>16</pointsize>
+        <underline>false</underline>
+       </font>
+      </property>
+      <property name="text">
+       <string>翻译源 &amp; 顺序：</string>
+      </property>
+     </widget>
+     <widget class="Line" name="Line_Source">
+      <property name="geometry">
+       <rect>
+        <x>210</x>
+        <y>85</y>
+        <width>21</width>
+        <height>171</height>
+       </rect>
+      </property>
+      <property name="orientation">
+       <enum>Qt::Vertical</enum>
+      </property>
+     </widget>
+     <widget class="Line" name="Line_3">
+      <property name="geometry">
+       <rect>
+        <x>0</x>
+        <y>10</y>
+        <width>441</width>
+        <height>21</height>
+       </rect>
+      </property>
+      <property name="frameShadow">
+       <enum>QFrame::Sunken</enum>
+      </property>
+      <property name="lineWidth">
+       <number>2</number>
+      </property>
+      <property name="orientation">
+       <enum>Qt::Horizontal</enum>
+      </property>
+     </widget>
+     <zorder>PushButton_SourceUP</zorder>
+     <zorder>Label_SourceSort</zorder>
+     <zorder>Label_SourceTips</zorder>
+     <zorder>PushButton_SourceDown</zorder>
+     <zorder>ListWidget_SelectedSource</zorder>
+     <zorder>ListWidget_SelectableSource</zorder>
+     <zorder>Label_TranslatorSourcesSetting</zorder>
+     <zorder>Line_Source</zorder>
+     <zorder>Line_3</zorder>
+     <zorder>Label_SelectedSource</zorder>
+     <zorder>Label_SelectableSource</zorder>
+     <zorder>PushButton_SourceDisable</zorder>
+     <zorder>PushButton_SourceEnable</zorder>
     </widget>
-    <widget class="Line" name="Line_2">
+    <widget class="QFrame" name="OCR_API">
      <property name="geometry">
       <rect>
-       <x>10</x>
-       <y>520</y>
+       <x>9</x>
+       <y>959</y>
        <width>441</width>
-       <height>21</height>
+       <height>181</height>
       </rect>
+     </property>
+     <property name="frameShape">
+      <enum>QFrame::StyledPanel</enum>
      </property>
      <property name="frameShadow">
-      <enum>QFrame::Sunken</enum>
+      <enum>QFrame::Raised</enum>
      </property>
-     <property name="lineWidth">
-      <number>2</number>
-     </property>
-     <property name="orientation">
-      <enum>Qt::Horizontal</enum>
-     </property>
+     <widget class="QLineEdit" name="LineEdit_OCRKEY">
+      <property name="geometry">
+       <rect>
+        <x>20</x>
+        <y>140</y>
+        <width>411</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>Microsoft YaHei UI</family>
+        <pointsize>11</pointsize>
+       </font>
+      </property>
+      <property name="focusPolicy">
+       <enum>Qt::ClickFocus</enum>
+      </property>
+      <property name="placeholderText">
+       <string>请输入科大讯飞OCR Key</string>
+      </property>
+     </widget>
+     <widget class="Line" name="Line_4">
+      <property name="geometry">
+       <rect>
+        <x>0</x>
+        <y>0</y>
+        <width>441</width>
+        <height>21</height>
+       </rect>
+      </property>
+      <property name="frameShadow">
+       <enum>QFrame::Sunken</enum>
+      </property>
+      <property name="lineWidth">
+       <number>2</number>
+      </property>
+      <property name="orientation">
+       <enum>Qt::Horizontal</enum>
+      </property>
+     </widget>
+     <widget class="QLabel" name="Label_OCRAPISetting">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>30</y>
+        <width>221</width>
+        <height>20</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>Microsoft YaHei UI</family>
+        <pointsize>16</pointsize>
+        <underline>false</underline>
+       </font>
+      </property>
+      <property name="text">
+       <string>文字识别API密钥设置：</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="PushButton_GetFreeOCRKEY">
+      <property name="geometry">
+       <rect>
+        <x>330</x>
+        <y>40</y>
+        <width>101</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <pointsize>10</pointsize>
+        <bold>false</bold>
+       </font>
+      </property>
+      <property name="focusPolicy">
+       <enum>Qt::ClickFocus</enum>
+      </property>
+      <property name="text">
+       <string>获取白嫖密钥</string>
+      </property>
+     </widget>
+     <widget class="QLineEdit" name="LineEdit_OCRSECRET">
+      <property name="geometry">
+       <rect>
+        <x>20</x>
+        <y>110</y>
+        <width>411</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>Microsoft YaHei UI</family>
+        <pointsize>11</pointsize>
+       </font>
+      </property>
+      <property name="focusPolicy">
+       <enum>Qt::ClickFocus</enum>
+      </property>
+      <property name="placeholderText">
+       <string>请输入科大讯飞OCR Secret</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="Label_XunFei">
+      <property name="geometry">
+       <rect>
+        <x>20</x>
+        <y>60</y>
+        <width>131</width>
+        <height>20</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>Microsoft YaHei UI</family>
+        <pointsize>11</pointsize>
+       </font>
+      </property>
+      <property name="text">
+       <string>科大讯飞OCRAPI</string>
+      </property>
+     </widget>
+     <widget class="QLineEdit" name="LineEdit_OCRAPPID">
+      <property name="geometry">
+       <rect>
+        <x>20</x>
+        <y>80</y>
+        <width>411</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>Microsoft YaHei UI</family>
+        <pointsize>11</pointsize>
+       </font>
+      </property>
+      <property name="focusPolicy">
+       <enum>Qt::ClickFocus</enum>
+      </property>
+      <property name="placeholderText">
+       <string>请输入科大讯飞OCR AppId</string>
+      </property>
+      <property name="clearButtonEnabled">
+       <bool>false</bool>
+      </property>
+     </widget>
     </widget>
-    <widget class="Line" name="Line_1">
-     <property name="geometry">
-      <rect>
-       <x>10</x>
-       <y>40</y>
-       <width>441</width>
-       <height>20</height>
-      </rect>
-     </property>
-     <property name="lineWidth">
-      <number>2</number>
-     </property>
-     <property name="orientation">
-      <enum>Qt::Horizontal</enum>
-     </property>
-    </widget>
-    <widget class="QLabel" name="Label_TranslatorAPISecretSetting">
-     <property name="geometry">
-      <rect>
-       <x>20</x>
-       <y>60</y>
-       <width>171</width>
-       <height>20</height>
-      </rect>
-     </property>
-     <property name="font">
-      <font>
-       <family>Microsoft YaHei UI</family>
-       <pointsize>16</pointsize>
-       <underline>false</underline>
-      </font>
-     </property>
-     <property name="text">
-      <string>翻译API密钥设置：</string>
-     </property>
-    </widget>
-    <widget class="QLabel" name="Label_HotkeySetting">
-     <property name="geometry">
-      <rect>
-       <x>20</x>
-       <y>540</y>
-       <width>111</width>
-       <height>20</height>
-      </rect>
-     </property>
-     <property name="font">
-      <font>
-       <family>Microsoft YaHei UI</family>
-       <pointsize>16</pointsize>
-       <underline>false</underline>
-      </font>
-     </property>
-     <property name="text">
-      <string>热键设置：</string>
-     </property>
-    </widget>
-    <widget class="QLabel" name="Label_TranslatorSourcesSetting">
-     <property name="geometry">
-      <rect>
-       <x>20</x>
-       <y>640</y>
-       <width>151</width>
-       <height>20</height>
-      </rect>
-     </property>
-     <property name="font">
-      <font>
-       <family>Microsoft YaHei UI</family>
-       <pointsize>16</pointsize>
-       <underline>false</underline>
-      </font>
-     </property>
-     <property name="text">
-      <string>翻译源 &amp; 顺序：</string>
-     </property>
-    </widget>
-    <widget class="Line" name="Line_Source">
-     <property name="geometry">
-      <rect>
-       <x>220</x>
-       <y>690</y>
-       <width>21</width>
-       <height>171</height>
-      </rect>
-     </property>
-     <property name="orientation">
-      <enum>Qt::Vertical</enum>
-     </property>
-    </widget>
-    <widget class="QLabel" name="Label_SelectableSource">
-     <property name="geometry">
-      <rect>
-       <x>20</x>
-       <y>670</y>
-       <width>101</width>
-       <height>20</height>
-      </rect>
-     </property>
-     <property name="font">
-      <font>
-       <family>Microsoft YaHei UI</family>
-       <pointsize>12</pointsize>
-      </font>
-     </property>
-     <property name="text">
-      <string>可使用翻译源</string>
-     </property>
-     <property name="alignment">
-      <set>Qt::AlignCenter</set>
-     </property>
-    </widget>
-    <widget class="QLabel" name="Label_SelectedSource">
-     <property name="geometry">
-      <rect>
-       <x>240</x>
-       <y>670</y>
-       <width>101</width>
-       <height>20</height>
-      </rect>
-     </property>
-     <property name="font">
-      <font>
-       <family>Microsoft YaHei UI</family>
-       <pointsize>12</pointsize>
-      </font>
-     </property>
-     <property name="text">
-      <string>已启用翻译源</string>
-     </property>
-     <property name="alignment">
-      <set>Qt::AlignCenter</set>
-     </property>
-    </widget>
-    <widget class="QPushButton" name="PushButton_SourceUP">
-     <property name="geometry">
-      <rect>
-       <x>330</x>
-       <y>870</y>
-       <width>51</width>
-       <height>21</height>
-      </rect>
-     </property>
-     <property name="font">
-      <font>
-       <pointsize>10</pointsize>
-       <bold>false</bold>
-      </font>
-     </property>
-     <property name="focusPolicy">
-      <enum>Qt::ClickFocus</enum>
-     </property>
-     <property name="text">
-      <string>上移</string>
-     </property>
-    </widget>
-    <widget class="QPushButton" name="PushButton_SourceDown">
-     <property name="geometry">
-      <rect>
-       <x>390</x>
-       <y>870</y>
-       <width>51</width>
-       <height>21</height>
-      </rect>
-     </property>
-     <property name="font">
-      <font>
-       <pointsize>10</pointsize>
-       <bold>false</bold>
-      </font>
-     </property>
-     <property name="focusPolicy">
-      <enum>Qt::ClickFocus</enum>
-     </property>
-     <property name="text">
-      <string>下移</string>
-     </property>
-    </widget>
-    <widget class="QPushButton" name="PushButton_SourceDisable">
-     <property name="geometry">
-      <rect>
-       <x>360</x>
-       <y>670</y>
-       <width>81</width>
-       <height>21</height>
-      </rect>
-     </property>
-     <property name="font">
-      <font>
-       <pointsize>10</pointsize>
-       <bold>false</bold>
-      </font>
-     </property>
-     <property name="focusPolicy">
-      <enum>Qt::ClickFocus</enum>
-     </property>
-     <property name="text">
-      <string>禁用选中源</string>
-     </property>
-    </widget>
-    <widget class="QPushButton" name="PushButton_SourceEnable">
-     <property name="geometry">
-      <rect>
-       <x>140</x>
-       <y>670</y>
-       <width>81</width>
-       <height>21</height>
-      </rect>
-     </property>
-     <property name="font">
-      <font>
-       <pointsize>10</pointsize>
-       <bold>false</bold>
-      </font>
-     </property>
-     <property name="focusPolicy">
-      <enum>Qt::ClickFocus</enum>
-     </property>
-     <property name="text">
-      <string>启用选中源</string>
-     </property>
-    </widget>
-    <widget class="QLabel" name="Label_SourceSort">
-     <property name="geometry">
-      <rect>
-       <x>240</x>
-       <y>870</y>
-       <width>81</width>
-       <height>20</height>
-      </rect>
-     </property>
-     <property name="font">
-      <font>
-       <family>Microsoft YaHei UI</family>
-       <pointsize>11</pointsize>
-      </font>
-     </property>
-     <property name="text">
-      <string>翻译源排序：</string>
-     </property>
-    </widget>
-    <widget class="QLabel" name="Label_SourceTips">
-     <property name="geometry">
-      <rect>
-       <x>20</x>
-       <y>870</y>
-       <width>131</width>
-       <height>20</height>
-      </rect>
-     </property>
-     <property name="font">
-      <font>
-       <family>Microsoft YaHei UI</family>
-       <pointsize>10</pointsize>
-      </font>
-     </property>
-     <property name="text">
-      <string>*最多可选四个翻译源</string>
-     </property>
-    </widget>
-    <widget class="QLabel" name="Label_AliYun">
-     <property name="geometry">
-      <rect>
-       <x>30</x>
-       <y>430</y>
-       <width>101</width>
-       <height>20</height>
-      </rect>
-     </property>
-     <property name="font">
-      <font>
-       <family>Microsoft YaHei UI</family>
-       <pointsize>11</pointsize>
-      </font>
-     </property>
-     <property name="text">
-      <string>阿里云翻译API</string>
-     </property>
-    </widget>
-    <widget class="QLineEdit" name="LineEdit_AliYunSECRET">
-     <property name="geometry">
-      <rect>
-       <x>30</x>
-       <y>480</y>
-       <width>411</width>
-       <height>31</height>
-      </rect>
-     </property>
-     <property name="font">
-      <font>
-       <family>Microsoft YaHei UI</family>
-       <pointsize>11</pointsize>
-      </font>
-     </property>
-     <property name="focusPolicy">
-      <enum>Qt::ClickFocus</enum>
-     </property>
-     <property name="placeholderText">
-      <string>请输入阿里云翻译API_SECRET</string>
-     </property>
-    </widget>
-    <widget class="QLineEdit" name="LineEdit_AliYunKEY">
-     <property name="geometry">
-      <rect>
-       <x>30</x>
-       <y>450</y>
-       <width>411</width>
-       <height>31</height>
-      </rect>
-     </property>
-     <property name="font">
-      <font>
-       <family>Microsoft YaHei UI</family>
-       <pointsize>11</pointsize>
-      </font>
-     </property>
-     <property name="focusPolicy">
-      <enum>Qt::ClickFocus</enum>
-     </property>
-     <property name="placeholderText">
-      <string>请输入阿里云翻译API_KEY</string>
-     </property>
-    </widget>
-    <widget class="QCheckBox" name="CheckBox_Youdao">
-     <property name="geometry">
-      <rect>
-       <x>330</x>
-       <y>90</y>
-       <width>111</width>
-       <height>20</height>
-      </rect>
-     </property>
-     <property name="font">
-      <font>
-       <pointsize>10</pointsize>
-      </font>
-     </property>
-     <property name="focusPolicy">
-      <enum>Qt::ClickFocus</enum>
-     </property>
-     <property name="text">
-      <string>白嫖有道翻译</string>
-     </property>
-    </widget>
-    <widget class="QCheckBox" name="CheckBox_CaiYun">
-     <property name="geometry">
-      <rect>
-       <x>330</x>
-       <y>170</y>
-       <width>111</width>
-       <height>20</height>
-      </rect>
-     </property>
-     <property name="font">
-      <font>
-       <pointsize>10</pointsize>
-      </font>
-     </property>
-     <property name="focusPolicy">
-      <enum>Qt::ClickFocus</enum>
-     </property>
-     <property name="text">
-      <string>白嫖彩云小译</string>
-     </property>
-    </widget>
-    <widget class="QCheckBox" name="CheckBox_Baidu">
-     <property name="geometry">
-      <rect>
-       <x>330</x>
-       <y>220</y>
-       <width>111</width>
-       <height>20</height>
-      </rect>
-     </property>
-     <property name="font">
-      <font>
-       <pointsize>10</pointsize>
-      </font>
-     </property>
-     <property name="focusPolicy">
-      <enum>Qt::ClickFocus</enum>
-     </property>
-     <property name="text">
-      <string>白嫖百度翻译</string>
-     </property>
-    </widget>
-    <widget class="QCheckBox" name="CheckBox_Tencent">
+    <widget class="QFrame" name="Opacity">
      <property name="enabled">
-      <bool>false</bool>
-     </property>
-     <property name="geometry">
-      <rect>
-       <x>330</x>
-       <y>300</y>
-       <width>111</width>
-       <height>20</height>
-      </rect>
-     </property>
-     <property name="font">
-      <font>
-       <pointsize>10</pointsize>
-      </font>
-     </property>
-     <property name="focusPolicy">
-      <enum>Qt::ClickFocus</enum>
-     </property>
-     <property name="text">
-      <string>白嫖腾讯翻译君</string>
-     </property>
-     <property name="checkable">
       <bool>true</bool>
      </property>
-    </widget>
-    <widget class="Line" name="Line_4">
      <property name="geometry">
       <rect>
        <x>10</x>
-       <y>890</y>
+       <y>1139</y>
        <width>441</width>
-       <height>21</height>
+       <height>91</height>
       </rect>
+     </property>
+     <property name="frameShape">
+      <enum>QFrame::StyledPanel</enum>
      </property>
      <property name="frameShadow">
-      <enum>QFrame::Sunken</enum>
+      <enum>QFrame::Raised</enum>
      </property>
-     <property name="lineWidth">
-      <number>2</number>
-     </property>
-     <property name="orientation">
-      <enum>Qt::Horizontal</enum>
-     </property>
+     <widget class="QSlider" name="horizontalSlider_Opacity">
+      <property name="geometry">
+       <rect>
+        <x>190</x>
+        <y>60</y>
+        <width>241</width>
+        <height>22</height>
+       </rect>
+      </property>
+      <property name="mouseTracking">
+       <bool>false</bool>
+      </property>
+      <property name="tabletTracking">
+       <bool>false</bool>
+      </property>
+      <property name="focusPolicy">
+       <enum>Qt::WheelFocus</enum>
+      </property>
+      <property name="minimum">
+       <number>20</number>
+      </property>
+      <property name="maximum">
+       <number>100</number>
+      </property>
+      <property name="value">
+       <number>100</number>
+      </property>
+      <property name="tracking">
+       <bool>true</bool>
+      </property>
+      <property name="orientation">
+       <enum>Qt::Horizontal</enum>
+      </property>
+      <property name="tickPosition">
+       <enum>QSlider::NoTicks</enum>
+      </property>
+     </widget>
+     <widget class="QLabel" name="Label_XunFei_2">
+      <property name="geometry">
+       <rect>
+        <x>20</x>
+        <y>60</y>
+        <width>111</width>
+        <height>20</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>Microsoft YaHei UI</family>
+        <pointsize>11</pointsize>
+       </font>
+      </property>
+      <property name="text">
+       <string>当前不透明度为：</string>
+      </property>
+     </widget>
+     <widget class="QSpinBox" name="spinBox_Opacity">
+      <property name="geometry">
+       <rect>
+        <x>140</x>
+        <y>60</y>
+        <width>42</width>
+        <height>22</height>
+       </rect>
+      </property>
+      <property name="minimum">
+       <number>20</number>
+      </property>
+      <property name="maximum">
+       <number>100</number>
+      </property>
+      <property name="value">
+       <number>100</number>
+      </property>
+     </widget>
+     <widget class="QLabel" name="Label_OpacitySetting">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>30</y>
+        <width>221</width>
+        <height>20</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>Microsoft YaHei UI</family>
+        <pointsize>16</pointsize>
+        <underline>false</underline>
+       </font>
+      </property>
+      <property name="text">
+       <string>窗口不透明度设置：</string>
+      </property>
+     </widget>
+     <widget class="Line" name="Line_5">
+      <property name="geometry">
+       <rect>
+        <x>0</x>
+        <y>0</y>
+        <width>441</width>
+        <height>21</height>
+       </rect>
+      </property>
+      <property name="frameShadow">
+       <enum>QFrame::Sunken</enum>
+      </property>
+      <property name="lineWidth">
+       <number>2</number>
+      </property>
+      <property name="orientation">
+       <enum>Qt::Horizontal</enum>
+      </property>
+     </widget>
     </widget>
-    <widget class="QLabel" name="Label_OCRAPISetting">
-     <property name="geometry">
-      <rect>
-       <x>20</x>
-       <y>910</y>
-       <width>221</width>
-       <height>20</height>
-      </rect>
-     </property>
-     <property name="font">
-      <font>
-       <family>Microsoft YaHei UI</family>
-       <pointsize>16</pointsize>
-       <underline>false</underline>
-      </font>
-     </property>
-     <property name="text">
-      <string>文字识别API密钥设置：</string>
-     </property>
-    </widget>
-    <widget class="QLineEdit" name="LineEdit_OCRAPPID">
-     <property name="geometry">
-      <rect>
-       <x>30</x>
-       <y>960</y>
-       <width>411</width>
-       <height>31</height>
-      </rect>
-     </property>
-     <property name="font">
-      <font>
-       <family>Microsoft YaHei UI</family>
-       <pointsize>11</pointsize>
-      </font>
-     </property>
-     <property name="focusPolicy">
-      <enum>Qt::ClickFocus</enum>
-     </property>
-     <property name="placeholderText">
-      <string>请输入科大讯飞OCR AppId</string>
-     </property>
-     <property name="clearButtonEnabled">
-      <bool>false</bool>
-     </property>
-    </widget>
-    <widget class="QLineEdit" name="LineEdit_OCRSECRET">
-     <property name="geometry">
-      <rect>
-       <x>30</x>
-       <y>990</y>
-       <width>411</width>
-       <height>31</height>
-      </rect>
-     </property>
-     <property name="font">
-      <font>
-       <family>Microsoft YaHei UI</family>
-       <pointsize>11</pointsize>
-      </font>
-     </property>
-     <property name="focusPolicy">
-      <enum>Qt::ClickFocus</enum>
-     </property>
-     <property name="placeholderText">
-      <string>请输入科大讯飞OCR Secret</string>
-     </property>
-    </widget>
-    <widget class="QLineEdit" name="LineEdit_OCRKEY">
-     <property name="geometry">
-      <rect>
-       <x>30</x>
-       <y>1020</y>
-       <width>411</width>
-       <height>31</height>
-      </rect>
-     </property>
-     <property name="font">
-      <font>
-       <family>Microsoft YaHei UI</family>
-       <pointsize>11</pointsize>
-      </font>
-     </property>
-     <property name="focusPolicy">
-      <enum>Qt::ClickFocus</enum>
-     </property>
-     <property name="placeholderText">
-      <string>请输入科大讯飞OCR Key</string>
-     </property>
-    </widget>
-    <widget class="QLabel" name="Label_XunFei">
-     <property name="geometry">
-      <rect>
-       <x>30</x>
-       <y>940</y>
-       <width>131</width>
-       <height>20</height>
-      </rect>
-     </property>
-     <property name="font">
-      <font>
-       <family>Microsoft YaHei UI</family>
-       <pointsize>11</pointsize>
-      </font>
-     </property>
-     <property name="text">
-      <string>科大讯飞OCRAPI</string>
-     </property>
-    </widget>
-    <widget class="QPushButton" name="PushButton_GetFreeOCRKEY">
-     <property name="geometry">
-      <rect>
-       <x>340</x>
-       <y>920</y>
-       <width>101</width>
-       <height>31</height>
-      </rect>
-     </property>
-     <property name="font">
-      <font>
-       <pointsize>10</pointsize>
-       <bold>false</bold>
-      </font>
-     </property>
-     <property name="focusPolicy">
-      <enum>Qt::ClickFocus</enum>
-     </property>
-     <property name="text">
-      <string>获取白嫖密钥</string>
-     </property>
-    </widget>
-    <widget class="QSlider" name="horizontalSlider_Opacity">
-     <property name="geometry">
-      <rect>
-       <x>200</x>
-       <y>1110</y>
-       <width>241</width>
-       <height>22</height>
-      </rect>
-     </property>
-     <property name="mouseTracking">
-      <bool>false</bool>
-     </property>
-     <property name="tabletTracking">
-      <bool>false</bool>
-     </property>
-     <property name="focusPolicy">
-      <enum>Qt::WheelFocus</enum>
-     </property>
-     <property name="minimum">
-      <number>20</number>
-     </property>
-     <property name="maximum">
-      <number>100</number>
-     </property>
-     <property name="value">
-      <number>100</number>
-     </property>
-     <property name="tracking">
-      <bool>true</bool>
-     </property>
-     <property name="orientation">
-      <enum>Qt::Horizontal</enum>
-     </property>
-     <property name="tickPosition">
-      <enum>QSlider::NoTicks</enum>
-     </property>
-    </widget>
-    <widget class="Line" name="Line_5">
+    <widget class="QFrame" name="Hotkey">
      <property name="geometry">
       <rect>
        <x>10</x>
-       <y>1060</y>
+       <y>570</y>
        <width>441</width>
-       <height>21</height>
+       <height>111</height>
       </rect>
+     </property>
+     <property name="frameShape">
+      <enum>QFrame::StyledPanel</enum>
      </property>
      <property name="frameShadow">
-      <enum>QFrame::Sunken</enum>
+      <enum>QFrame::Raised</enum>
      </property>
-     <property name="lineWidth">
-      <number>2</number>
-     </property>
-     <property name="orientation">
-      <enum>Qt::Horizontal</enum>
-     </property>
+     <widget class="Line" name="Line_2">
+      <property name="geometry">
+       <rect>
+        <x>0</x>
+        <y>0</y>
+        <width>441</width>
+        <height>21</height>
+       </rect>
+      </property>
+      <property name="frameShadow">
+       <enum>QFrame::Sunken</enum>
+      </property>
+      <property name="lineWidth">
+       <number>2</number>
+      </property>
+      <property name="orientation">
+       <enum>Qt::Horizontal</enum>
+      </property>
+     </widget>
+     <widget class="QLabel" name="Label_HotkeySetting">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>20</y>
+        <width>111</width>
+        <height>20</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>Microsoft YaHei UI</family>
+        <pointsize>16</pointsize>
+        <underline>false</underline>
+       </font>
+      </property>
+      <property name="text">
+       <string>热键设置：</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="changeHotKeyButton">
+      <property name="geometry">
+       <rect>
+        <x>260</x>
+        <y>50</y>
+        <width>41</width>
+        <height>21</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>Microsoft YaHei UI</family>
+        <pointsize>10</pointsize>
+       </font>
+      </property>
+      <property name="focusPolicy">
+       <enum>Qt::NoFocus</enum>
+      </property>
+      <property name="toolTip">
+       <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;确认更改快捷键&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+      </property>
+      <property name="statusTip">
+       <string/>
+      </property>
+      <property name="whatsThis">
+       <string/>
+      </property>
+      <property name="accessibleDescription">
+       <string/>
+      </property>
+      <property name="text">
+       <string>更改</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="cancelHotKeyButton">
+      <property name="geometry">
+       <rect>
+        <x>310</x>
+        <y>50</y>
+        <width>41</width>
+        <height>21</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>Microsoft YaHei UI</family>
+        <pointsize>10</pointsize>
+       </font>
+      </property>
+      <property name="focusPolicy">
+       <enum>Qt::NoFocus</enum>
+      </property>
+      <property name="toolTip">
+       <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;确认更改快捷键&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+      </property>
+      <property name="statusTip">
+       <string/>
+      </property>
+      <property name="whatsThis">
+       <string/>
+      </property>
+      <property name="accessibleDescription">
+       <string/>
+      </property>
+      <property name="text">
+       <string>取消</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="Label_ConcatHotkey">
+      <property name="geometry">
+       <rect>
+        <x>20</x>
+        <y>80</y>
+        <width>71</width>
+        <height>20</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>Microsoft YaHei UI</family>
+        <pointsize>11</pointsize>
+       </font>
+      </property>
+      <property name="text">
+       <string>拼接热键：</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="Label_ShortcutKeyText">
+      <property name="geometry">
+       <rect>
+        <x>90</x>
+        <y>50</y>
+        <width>161</width>
+        <height>20</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>Microsoft YaHei UI</family>
+        <pointsize>11</pointsize>
+        <underline>true</underline>
+       </font>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignCenter</set>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="confirmHotKeyButton">
+      <property name="geometry">
+       <rect>
+        <x>260</x>
+        <y>50</y>
+        <width>41</width>
+        <height>21</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>Microsoft YaHei UI</family>
+        <pointsize>10</pointsize>
+       </font>
+      </property>
+      <property name="focusPolicy">
+       <enum>Qt::NoFocus</enum>
+      </property>
+      <property name="toolTip">
+       <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;确认更改快捷键&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+      </property>
+      <property name="statusTip">
+       <string/>
+      </property>
+      <property name="whatsThis">
+       <string/>
+      </property>
+      <property name="accessibleDescription">
+       <string/>
+      </property>
+      <property name="text">
+       <string>确认</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="Label_OCRHotkey">
+      <property name="geometry">
+       <rect>
+        <x>20</x>
+        <y>50</y>
+        <width>71</width>
+        <height>20</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>Microsoft YaHei UI</family>
+        <pointsize>11</pointsize>
+       </font>
+      </property>
+      <property name="text">
+       <string>OCR热键：</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="Label_ConcatShortcutKeyText">
+      <property name="geometry">
+       <rect>
+        <x>90</x>
+        <y>80</y>
+        <width>161</width>
+        <height>20</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>Microsoft YaHei UI</family>
+        <pointsize>11</pointsize>
+        <underline>true</underline>
+       </font>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignCenter</set>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="changeConcatHotKeyButton">
+      <property name="geometry">
+       <rect>
+        <x>260</x>
+        <y>80</y>
+        <width>41</width>
+        <height>21</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>Microsoft YaHei UI</family>
+        <pointsize>10</pointsize>
+       </font>
+      </property>
+      <property name="focusPolicy">
+       <enum>Qt::NoFocus</enum>
+      </property>
+      <property name="toolTip">
+       <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;确认更改快捷键&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+      </property>
+      <property name="statusTip">
+       <string/>
+      </property>
+      <property name="whatsThis">
+       <string/>
+      </property>
+      <property name="accessibleDescription">
+       <string/>
+      </property>
+      <property name="text">
+       <string>更改</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="confirmConcatHotKeyButton">
+      <property name="geometry">
+       <rect>
+        <x>260</x>
+        <y>80</y>
+        <width>41</width>
+        <height>21</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>Microsoft YaHei UI</family>
+        <pointsize>10</pointsize>
+       </font>
+      </property>
+      <property name="focusPolicy">
+       <enum>Qt::NoFocus</enum>
+      </property>
+      <property name="toolTip">
+       <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;确认更改快捷键&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+      </property>
+      <property name="statusTip">
+       <string/>
+      </property>
+      <property name="whatsThis">
+       <string/>
+      </property>
+      <property name="accessibleDescription">
+       <string/>
+      </property>
+      <property name="text">
+       <string>确认</string>
+      </property>
+     </widget>
+     <widget class="oneKeyQKeySequenceEdit" name="OCRKeyEdit">
+      <property name="geometry">
+       <rect>
+        <x>90</x>
+        <y>50</y>
+        <width>161</width>
+        <height>20</height>
+       </rect>
+      </property>
+      <property name="toolTip">
+       <string>摁下快捷键以键入</string>
+      </property>
+      <property name="keySequence">
+       <string extracomment="请按下组合键"/>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="cancelConcatHotKeyButton">
+      <property name="geometry">
+       <rect>
+        <x>310</x>
+        <y>80</y>
+        <width>41</width>
+        <height>21</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>Microsoft YaHei UI</family>
+        <pointsize>10</pointsize>
+       </font>
+      </property>
+      <property name="focusPolicy">
+       <enum>Qt::NoFocus</enum>
+      </property>
+      <property name="toolTip">
+       <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;确认更改快捷键&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+      </property>
+      <property name="statusTip">
+       <string/>
+      </property>
+      <property name="whatsThis">
+       <string/>
+      </property>
+      <property name="accessibleDescription">
+       <string/>
+      </property>
+      <property name="text">
+       <string>取消</string>
+      </property>
+     </widget>
+     <widget class="oneKeyQKeySequenceEdit" name="ConcatKeyEdit">
+      <property name="geometry">
+       <rect>
+        <x>90</x>
+        <y>80</y>
+        <width>161</width>
+        <height>20</height>
+       </rect>
+      </property>
+      <property name="toolTip">
+       <string>摁下快捷键以键入</string>
+      </property>
+      <property name="keySequence">
+       <string extracomment="请按下组合键"/>
+      </property>
+     </widget>
     </widget>
-    <widget class="QLabel" name="Label_OpacitySetting">
+    <widget class="QFrame" name="API_KEY">
      <property name="geometry">
       <rect>
-       <x>20</x>
-       <y>1080</y>
-       <width>221</width>
-       <height>20</height>
+       <x>9</x>
+       <y>39</y>
+       <width>441</width>
+       <height>521</height>
       </rect>
      </property>
-     <property name="font">
-      <font>
-       <family>Microsoft YaHei UI</family>
-       <pointsize>16</pointsize>
-       <underline>false</underline>
-      </font>
+     <property name="frameShape">
+      <enum>QFrame::StyledPanel</enum>
      </property>
-     <property name="text">
-      <string>窗口不透明度设置：</string>
+     <property name="frameShadow">
+      <enum>QFrame::Raised</enum>
      </property>
+     <widget class="QLineEdit" name="LineEdit_OpenaiAPI">
+      <property name="geometry">
+       <rect>
+        <x>20</x>
+        <y>490</y>
+        <width>411</width>
+        <height>25</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>Microsoft YaHei UI</family>
+        <pointsize>9</pointsize>
+       </font>
+      </property>
+      <property name="focusPolicy">
+       <enum>Qt::ClickFocus</enum>
+      </property>
+      <property name="readOnly">
+       <bool>false</bool>
+      </property>
+      <property name="placeholderText">
+       <string>请输入OpenAI API_KEY</string>
+      </property>
+     </widget>
+     <widget class="Line" name="Line_1">
+      <property name="geometry">
+       <rect>
+        <x>0</x>
+        <y>0</y>
+        <width>441</width>
+        <height>20</height>
+       </rect>
+      </property>
+      <property name="lineWidth">
+       <number>2</number>
+      </property>
+      <property name="orientation">
+       <enum>Qt::Horizontal</enum>
+      </property>
+     </widget>
+     <widget class="QLineEdit" name="LineEdit_YoudaoSECRET">
+      <property name="geometry">
+       <rect>
+        <x>20</x>
+        <y>95</y>
+        <width>411</width>
+        <height>25</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>Microsoft YaHei UI</family>
+        <pointsize>9</pointsize>
+       </font>
+      </property>
+      <property name="focusPolicy">
+       <enum>Qt::ClickFocus</enum>
+      </property>
+      <property name="placeholderText">
+       <string>请输入有道翻译API_SECRET</string>
+      </property>
+     </widget>
+     <widget class="QCheckBox" name="CheckBox_Tencent">
+      <property name="enabled">
+       <bool>false</bool>
+      </property>
+      <property name="geometry">
+       <rect>
+        <x>320</x>
+        <y>260</y>
+        <width>111</width>
+        <height>20</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <pointsize>10</pointsize>
+       </font>
+      </property>
+      <property name="focusPolicy">
+       <enum>Qt::ClickFocus</enum>
+      </property>
+      <property name="text">
+       <string>白嫖腾讯翻译君</string>
+      </property>
+      <property name="checkable">
+       <bool>true</bool>
+      </property>
+     </widget>
+     <widget class="QLineEdit" name="LineEdit_YoudaoKEY">
+      <property name="geometry">
+       <rect>
+        <x>20</x>
+        <y>70</y>
+        <width>411</width>
+        <height>25</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>Microsoft YaHei UI</family>
+        <pointsize>9</pointsize>
+       </font>
+      </property>
+      <property name="focusPolicy">
+       <enum>Qt::ClickFocus</enum>
+      </property>
+      <property name="placeholderText">
+       <string>请输入有道翻译API_KEY</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="Label_Youdao">
+      <property name="geometry">
+       <rect>
+        <x>20</x>
+        <y>50</y>
+        <width>91</width>
+        <height>20</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>Microsoft YaHei UI</family>
+        <pointsize>11</pointsize>
+       </font>
+      </property>
+      <property name="text">
+       <string>有道翻译API</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="Label_Baidu">
+      <property name="geometry">
+       <rect>
+        <x>20</x>
+        <y>180</y>
+        <width>91</width>
+        <height>20</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>Microsoft YaHei UI</family>
+        <pointsize>11</pointsize>
+       </font>
+      </property>
+      <property name="text">
+       <string>百度翻译API</string>
+      </property>
+     </widget>
+     <widget class="QCheckBox" name="CheckBox_Baidu">
+      <property name="geometry">
+       <rect>
+        <x>320</x>
+        <y>180</y>
+        <width>111</width>
+        <height>20</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <pointsize>10</pointsize>
+       </font>
+      </property>
+      <property name="focusPolicy">
+       <enum>Qt::ClickFocus</enum>
+      </property>
+      <property name="text">
+       <string>白嫖百度翻译</string>
+      </property>
+     </widget>
+     <widget class="QCheckBox" name="CheckBox_CaiYun">
+      <property name="geometry">
+       <rect>
+        <x>320</x>
+        <y>130</y>
+        <width>111</width>
+        <height>20</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <pointsize>10</pointsize>
+       </font>
+      </property>
+      <property name="focusPolicy">
+       <enum>Qt::ClickFocus</enum>
+      </property>
+      <property name="text">
+       <string>白嫖彩云小译</string>
+      </property>
+     </widget>
+     <widget class="QLineEdit" name="LineEdit_AliYunKEY">
+      <property name="geometry">
+       <rect>
+        <x>20</x>
+        <y>410</y>
+        <width>411</width>
+        <height>25</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>Microsoft YaHei UI</family>
+        <pointsize>9</pointsize>
+       </font>
+      </property>
+      <property name="focusPolicy">
+       <enum>Qt::ClickFocus</enum>
+      </property>
+      <property name="placeholderText">
+       <string>请输入阿里云翻译API_KEY</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="Label_CaiYun">
+      <property name="geometry">
+       <rect>
+        <x>20</x>
+        <y>130</y>
+        <width>91</width>
+        <height>20</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>Microsoft YaHei UI</family>
+        <pointsize>11</pointsize>
+       </font>
+      </property>
+      <property name="text">
+       <string>彩云小译API</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="Label_Openai">
+      <property name="geometry">
+       <rect>
+        <x>20</x>
+        <y>470</y>
+        <width>101</width>
+        <height>20</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>Microsoft YaHei UI</family>
+        <pointsize>11</pointsize>
+       </font>
+      </property>
+      <property name="text">
+       <string>ChatGPT API</string>
+      </property>
+     </widget>
+     <widget class="QLineEdit" name="LineEdit_TencentSECRET">
+      <property name="geometry">
+       <rect>
+        <x>20</x>
+        <y>305</y>
+        <width>411</width>
+        <height>25</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>Microsoft YaHei UI</family>
+        <pointsize>9</pointsize>
+       </font>
+      </property>
+      <property name="focusPolicy">
+       <enum>Qt::ClickFocus</enum>
+      </property>
+      <property name="placeholderText">
+       <string>请输入腾讯云翻译API_SECRET</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="Label_AliYun">
+      <property name="geometry">
+       <rect>
+        <x>20</x>
+        <y>390</y>
+        <width>101</width>
+        <height>20</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>Microsoft YaHei UI</family>
+        <pointsize>11</pointsize>
+       </font>
+      </property>
+      <property name="text">
+       <string>阿里云翻译API</string>
+      </property>
+     </widget>
+     <widget class="QLineEdit" name="LineEdit_BaiduAPPID">
+      <property name="geometry">
+       <rect>
+        <x>20</x>
+        <y>200</y>
+        <width>411</width>
+        <height>25</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>Microsoft YaHei UI</family>
+        <pointsize>9</pointsize>
+       </font>
+      </property>
+      <property name="focusPolicy">
+       <enum>Qt::ClickFocus</enum>
+      </property>
+      <property name="placeholderText">
+       <string>请输入百度翻译API_APPID</string>
+      </property>
+     </widget>
+     <widget class="QLineEdit" name="LineEdit_BaiduSECRETKEY">
+      <property name="geometry">
+       <rect>
+        <x>20</x>
+        <y>225</y>
+        <width>411</width>
+        <height>25</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>Microsoft YaHei UI</family>
+        <pointsize>9</pointsize>
+       </font>
+      </property>
+      <property name="focusPolicy">
+       <enum>Qt::ClickFocus</enum>
+      </property>
+      <property name="placeholderText">
+       <string>请输入百度翻译API_SECRETKEY</string>
+      </property>
+     </widget>
+     <widget class="QCheckBox" name="CheckBox_Youdao">
+      <property name="geometry">
+       <rect>
+        <x>320</x>
+        <y>50</y>
+        <width>111</width>
+        <height>20</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <pointsize>10</pointsize>
+       </font>
+      </property>
+      <property name="focusPolicy">
+       <enum>Qt::ClickFocus</enum>
+      </property>
+      <property name="text">
+       <string>白嫖有道翻译</string>
+      </property>
+     </widget>
+     <widget class="QLineEdit" name="LineEdit_XiaoNiuKEY">
+      <property name="geometry">
+       <rect>
+        <x>20</x>
+        <y>360</y>
+        <width>411</width>
+        <height>25</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>Microsoft YaHei UI</family>
+        <pointsize>9</pointsize>
+       </font>
+      </property>
+      <property name="focusPolicy">
+       <enum>Qt::ClickFocus</enum>
+      </property>
+      <property name="placeholderText">
+       <string>请输入小牛翻译API_KEY</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="Label_TranslatorAPISecretSetting">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>20</y>
+        <width>171</width>
+        <height>20</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>Microsoft YaHei UI</family>
+        <pointsize>14</pointsize>
+        <underline>false</underline>
+       </font>
+      </property>
+      <property name="text">
+       <string>翻译API密钥设置：</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="Label_XiaoNiu">
+      <property name="geometry">
+       <rect>
+        <x>20</x>
+        <y>340</y>
+        <width>91</width>
+        <height>20</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>Microsoft YaHei UI</family>
+        <pointsize>11</pointsize>
+       </font>
+      </property>
+      <property name="text">
+       <string>小牛翻译API</string>
+      </property>
+     </widget>
+     <widget class="QLineEdit" name="LineEdit_CaiYunTOKEN">
+      <property name="geometry">
+       <rect>
+        <x>20</x>
+        <y>150</y>
+        <width>411</width>
+        <height>25</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>Microsoft YaHei UI</family>
+        <pointsize>9</pointsize>
+       </font>
+      </property>
+      <property name="focusPolicy">
+       <enum>Qt::ClickFocus</enum>
+      </property>
+      <property name="placeholderText">
+       <string>请输入彩云小译API_TOKEN</string>
+      </property>
+     </widget>
+     <widget class="QLineEdit" name="LineEdit_AliYunSECRET">
+      <property name="geometry">
+       <rect>
+        <x>20</x>
+        <y>435</y>
+        <width>411</width>
+        <height>25</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>Microsoft YaHei UI</family>
+        <pointsize>9</pointsize>
+       </font>
+      </property>
+      <property name="focusPolicy">
+       <enum>Qt::ClickFocus</enum>
+      </property>
+      <property name="placeholderText">
+       <string>请输入阿里云翻译API_SECRET</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="Label_Tencent">
+      <property name="geometry">
+       <rect>
+        <x>20</x>
+        <y>260</y>
+        <width>101</width>
+        <height>20</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>Microsoft YaHei UI</family>
+        <pointsize>11</pointsize>
+       </font>
+      </property>
+      <property name="text">
+       <string>腾讯云翻译API</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="Label_HelpLink">
+      <property name="geometry">
+       <rect>
+        <x>340</x>
+        <y>20</y>
+        <width>91</width>
+        <height>21</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <pointsize>11</pointsize>
+       </font>
+      </property>
+      <property name="text">
+       <string>&lt;a href=&quot;https://github.com/GayWindTech/TransAssistant/blob/main/README.md&quot;&gt;查看填写帮助&lt;/a&gt;</string>
+      </property>
+      <property name="openExternalLinks">
+       <bool>true</bool>
+      </property>
+     </widget>
+     <widget class="QLineEdit" name="LineEdit_TencentKEY">
+      <property name="geometry">
+       <rect>
+        <x>20</x>
+        <y>280</y>
+        <width>411</width>
+        <height>25</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>Microsoft YaHei UI</family>
+        <pointsize>9</pointsize>
+       </font>
+      </property>
+      <property name="focusPolicy">
+       <enum>Qt::ClickFocus</enum>
+      </property>
+      <property name="placeholderText">
+       <string>请输入腾讯云翻译API_KEY</string>
+      </property>
+     </widget>
     </widget>
-    <widget class="QLabel" name="Label_XunFei_2">
-     <property name="geometry">
-      <rect>
-       <x>30</x>
-       <y>1110</y>
-       <width>111</width>
-       <height>20</height>
-      </rect>
-     </property>
-     <property name="font">
-      <font>
-       <family>Microsoft YaHei UI</family>
-       <pointsize>11</pointsize>
-      </font>
-     </property>
-     <property name="text">
-      <string>当前不透明度为：</string>
-     </property>
-    </widget>
-    <widget class="QSpinBox" name="spinBox_Opacity">
-     <property name="geometry">
-      <rect>
-       <x>150</x>
-       <y>1110</y>
-       <width>42</width>
-       <height>22</height>
-      </rect>
-     </property>
-     <property name="minimum">
-      <number>20</number>
-     </property>
-     <property name="maximum">
-      <number>100</number>
-     </property>
-     <property name="value">
-      <number>100</number>
-     </property>
-    </widget>
-    <widget class="QLabel" name="Label_ConcatHotkey">
-     <property name="geometry">
-      <rect>
-       <x>30</x>
-       <y>600</y>
-       <width>91</width>
-       <height>20</height>
-      </rect>
-     </property>
-     <property name="font">
-      <font>
-       <family>Microsoft YaHei UI</family>
-       <pointsize>11</pointsize>
-      </font>
-     </property>
-     <property name="text">
-      <string>拼接热键：</string>
-     </property>
-    </widget>
-    <widget class="QLabel" name="Label_ConcatShortcutKeyText">
-     <property name="geometry">
-      <rect>
-       <x>100</x>
-       <y>600</y>
-       <width>161</width>
-       <height>20</height>
-      </rect>
-     </property>
-     <property name="font">
-      <font>
-       <family>Microsoft YaHei UI</family>
-       <pointsize>11</pointsize>
-       <underline>true</underline>
-      </font>
-     </property>
-     <property name="text">
-      <string/>
-     </property>
-     <property name="alignment">
-      <set>Qt::AlignCenter</set>
-     </property>
-    </widget>
-    <widget class="oneKeyQKeySequenceEdit" name="ConcatKeyEdit">
-     <property name="geometry">
-      <rect>
-       <x>100</x>
-       <y>600</y>
-       <width>161</width>
-       <height>20</height>
-      </rect>
-     </property>
-     <property name="toolTip">
-      <string>摁下快捷键以键入</string>
-     </property>
-     <property name="keySequence">
-      <string extracomment="请按下组合键"/>
-     </property>
-    </widget>
-    <widget class="QPushButton" name="cancelConcatHotKeyButton">
-     <property name="geometry">
-      <rect>
-       <x>320</x>
-       <y>600</y>
-       <width>41</width>
-       <height>21</height>
-      </rect>
-     </property>
-     <property name="font">
-      <font>
-       <family>Microsoft YaHei UI</family>
-       <pointsize>10</pointsize>
-      </font>
-     </property>
-     <property name="focusPolicy">
-      <enum>Qt::NoFocus</enum>
-     </property>
-     <property name="toolTip">
-      <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;确认更改快捷键&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-     </property>
-     <property name="statusTip">
-      <string/>
-     </property>
-     <property name="whatsThis">
-      <string/>
-     </property>
-     <property name="accessibleDescription">
-      <string/>
-     </property>
-     <property name="text">
-      <string>取消</string>
-     </property>
-    </widget>
-    <widget class="QPushButton" name="confirmConcatHotKeyButton">
-     <property name="geometry">
-      <rect>
-       <x>270</x>
-       <y>600</y>
-       <width>41</width>
-       <height>21</height>
-      </rect>
-     </property>
-     <property name="font">
-      <font>
-       <family>Microsoft YaHei UI</family>
-       <pointsize>10</pointsize>
-      </font>
-     </property>
-     <property name="focusPolicy">
-      <enum>Qt::NoFocus</enum>
-     </property>
-     <property name="toolTip">
-      <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;确认更改快捷键&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-     </property>
-     <property name="statusTip">
-      <string/>
-     </property>
-     <property name="whatsThis">
-      <string/>
-     </property>
-     <property name="accessibleDescription">
-      <string/>
-     </property>
-     <property name="text">
-      <string>确认</string>
-     </property>
-    </widget>
-    <widget class="QPushButton" name="changeConcatHotKeyButton">
-     <property name="geometry">
-      <rect>
-       <x>270</x>
-       <y>600</y>
-       <width>41</width>
-       <height>21</height>
-      </rect>
-     </property>
-     <property name="font">
-      <font>
-       <family>Microsoft YaHei UI</family>
-       <pointsize>10</pointsize>
-      </font>
-     </property>
-     <property name="focusPolicy">
-      <enum>Qt::NoFocus</enum>
-     </property>
-     <property name="toolTip">
-      <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;确认更改快捷键&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-     </property>
-     <property name="statusTip">
-      <string/>
-     </property>
-     <property name="whatsThis">
-      <string/>
-     </property>
-     <property name="accessibleDescription">
-      <string/>
-     </property>
-     <property name="text">
-      <string>更改</string>
-     </property>
-    </widget>
+    <zorder>API_KEY</zorder>
+    <zorder>Hotkey</zorder>
+    <zorder>Opacity</zorder>
+    <zorder>OCR_API</zorder>
+    <zorder>TransSource</zorder>
+    <zorder>Label_MasterTitle</zorder>
+    <zorder>Button_Save</zorder>
    </widget>
   </widget>
  </widget>
